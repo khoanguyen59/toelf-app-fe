@@ -13,13 +13,13 @@ export default observer(() => {
       <Routes>
         {defaultRoutes
           .filter((item: any) => !item.isLayout)
-          .map((item: any) => (
-            <Route
+          .map((item: any) => {
+            return (<Route
               key={item.path}
               path={item.path}
               Component={item.component}
-            />
-          ))}
+            />)
+          })}
         {/* <Route component={PageNotFound} /> */}
       </Routes>
     </>

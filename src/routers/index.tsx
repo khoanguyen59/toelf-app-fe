@@ -22,8 +22,8 @@ import { useQuery } from '@utils/api.utils';
 
 const Router = () => {
   const { authenticationStore } = useStore();
-  const navigate = useNavigate();
-  const redirectTo = useQuery().get('redirectTo');
+  // const navigate = useNavigate();
+  // const redirectTo = useQuery().get('redirectTo');
   const [isChecked, setIsChecked] = React.useState<boolean>(false);
   const [publicRouters, setPublicRouters] = React.useState<CustomRoute[]>();
 
@@ -88,7 +88,7 @@ const Router = () => {
           customerDeclarationLink
         )
         .then(() => {
-          if (redirectTo) navigate(redirectTo);
+          // if (redirectTo) navigate(redirectTo);
         });
     }
 
@@ -129,7 +129,7 @@ const Router = () => {
           )}
           {/* No guard route */}
           <Route
-            path='/'
+            path='*'
             Component={(props: any) => <DefaultLayout {...props} exact />}
           />
         </Routes>

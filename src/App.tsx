@@ -1,15 +1,15 @@
+import RouterComponent from '@/routers';
+import { observer } from 'mobx-react';
 import React from 'react';
-
-import Layout from './components/twitter/Layout';
 import GlobalStyles from './styles/GlobalStyles';
 
 function App() {
   return (
     <>
-      <Layout />
+      <RouterComponent />
       <GlobalStyles />
     </>
   );
 }
 
-export default App;
+export default observer(App);

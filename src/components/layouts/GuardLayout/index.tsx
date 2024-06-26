@@ -60,60 +60,6 @@ const GuardLayout = () => {
         case MenuNames.HOME_REQUEST:
           route.title = t(MENU_REQUEST);
           break;
-        case MenuNames.REGISTER_SUPPLY:
-          route.title = t(MENU_OFFER);
-          break;
-        case MenuNames.REGISTER_REQUEST:
-          route.title = t(MENU_REQUEST);
-          break;
-        case MenuNames.MY_PROJECTS:
-          route.title = t(MENU_MY_PROJECTS);
-          break;
-        case MenuNames.TRANSACTION_IN_PROGRESS:
-          route.title = t(MENU_IN_PROGRESS);
-          break;
-        case MenuNames.TRANSACTION_COMPLETED:
-          route.title = t(MENU_COMPLETED);
-          break;
-        case MenuNames.ANALYSIS_REPORT:
-          route.title = t(MENU_REPORTING);
-          break;
-        case MenuNames.ANALYSIS_DATA_EXTRACTION:
-          route.title = t(MENU_DATA_EXTRACTION);
-          break;
-        case MenuNames.SETTING_MATERIAL:
-          route.title = t(MENU_MATERIALS);
-          break;
-        case MenuNames.SETTING_HUB:
-          route.title = t(MENU_LOCATIONS);
-          break;
-        case MenuNames.SETTING_CO2EMISSION:
-          route.title = t(MENU_CO2_EMISSION);
-          break;
-        case MenuNames.SETTING_TRANSPORT:
-          route.title = t(MENU_TRANSPORT);
-          break;
-        case MenuNames.SETTING_PROJECTS:
-          route.title = t(MENU_PROJECTS);
-          break;
-        case MenuNames.SETTING_COMPANIES:
-          route.title = t(MENU_COMPANIES);
-          break;
-        case MenuNames.SETTING_EMISSIONS_CALCULATOR:
-          route.title = t(MENU_EMISSIONS_CALCULATOR);
-          break;
-        case MenuNames.SETTING_USERS:
-          route.title = t(MENU_USERS);
-          break;
-        case MenuNames.DECLARATION_OVERVIEW:
-          route.title = t(MENU_DECLARATIONS);
-          break;
-        case MenuNames.DECLARATION_CUSTOMER:
-          route.title = t(MENU_CUSTOMERS);
-          break;
-        case MenuNames.SETTING_COMPANY:
-          route.title = t(MENU_COMPANY);
-          break;
       }
       return route;
     });

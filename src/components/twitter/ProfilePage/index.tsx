@@ -13,7 +13,7 @@ import {
   Followage,
 } from './styles';
 
-const ProfilePage: React.FC = () => {
+const ProfilePage = () => {
   return (
     <Container>
       <Banner>

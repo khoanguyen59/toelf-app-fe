@@ -63,7 +63,30 @@ export const routeCategories: RouteCategory[] = [
 
 export const guardRoutes: CustomRoute[] = [];
 
-export const defaultRoutes: CustomRoute[] = [];
+export const defaultRoutes: CustomRoute[] = [
+  {
+    path: '/favorite-topics',
+    name: MenuNames.FAVORITE_TOPICS,
+    title: 'Select your favirte topics',
+    exact: true,
+    component: React.lazy(() => import('@/pages/home/FavoriteTopics')),
+    isLayout: false,
+    isMenu: false,
+    isMobileMenu: false,
+    isGuarded: true,
+  },
+  {
+    path: '/',
+    name: MenuNames.VISITOR,
+    title: 'Visitor',
+    exact: false,
+    component: React.lazy(() => import('@/pages/home/Sample')),
+    isLayout: false,
+    isMenu: false,
+    isMobileMenu: false,
+    isGuarded: true,
+  },
+];
 
 export const publicRoutes: CustomRoute[] = [];
 

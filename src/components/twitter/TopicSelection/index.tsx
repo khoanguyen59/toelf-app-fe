@@ -14,7 +14,7 @@ import {
   EmailIcon,
 } from './styles';
 
-const TopicSelection: React.FC = () => {
+const Main: React.FC = () => {
   return (
     <Container>
       <Header>
@@ -40,4 +40,4 @@ const TopicSelection: React.FC = () => {
   );
 };
 
-export default TopicSelection;
+export default Main;
