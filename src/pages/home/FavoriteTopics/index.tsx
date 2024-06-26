@@ -1,20 +1,20 @@
-import Main from '@components/twitter/Main';
-import MenuBar from '@components/twitter/MenuBar';
-import { Container } from '@components/twitter/MenuBar/styles';
-import { Wrapper } from '@components/twitter/Sample/styles';
-import SideBar from '@components/twitter/SideBar';
+import MenuBar from '@components/menus/MenuBar';
+import SideBar from '@components/menus/SideBar';
+import TopicLayout from '@components/layouts/TopicLayout';
 import { observer } from 'mobx-react';
 import React from 'react';
+import { AppContainer } from '@components/common/AppContainer';
+import { AppWrapper } from '@components/common/AppWrapper';
 
 const FavoriteTopics = () => {
   return (
-    <Container>
-      <Wrapper>
+    <AppContainer>
+      <AppWrapper>
         <MenuBar />
-        <Main />
+        <TopicLayout />
         <SideBar />
-      </Wrapper>
-    </Container>
+      </AppWrapper>
+    </AppContainer>
   );
 };
 
