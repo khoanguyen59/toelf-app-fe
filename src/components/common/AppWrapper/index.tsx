@@ -7,3 +7,11 @@ export const AppWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
 }));
+
+export const AppWrapperRight = styled('div')(({ theme }) => ({
+  height: '100%',
+  maxWidth: '1280px',
+  margin: '0 auto',
+  display: 'flex',
+  justifyContent: 'end',
+}));

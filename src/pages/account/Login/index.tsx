@@ -4,9 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useStore } from '@/RootStoreProvider';
 import Login from '@components/account/Login';
 import { AppContainer } from '@components/common/AppContainer';
-import { AppWrapper } from '@components/common/AppWrapper';
-import TopicChips from '@components/topic/TopicChips';
-import MenuBar from '@components/menus/MenuBar';
+import { AppWrapperRight } from '@components/common/AppWrapper';
 
 const useQuery = () => {
   const { search } = useLocation();
@@ -39,14 +37,14 @@ const LoginPage = () => {
 
   return (
     <AppContainer>
-      <AppWrapper>
+      <AppWrapperRight>
         <Login
           setEmail={setEmail}
           setPassword={setPassword}
           setRememberMe={setRememberMe}
           handleLogin={handleLogin}
         />
-      </AppWrapper>
+      </AppWrapperRight>
     </AppContainer>
   );
 };
