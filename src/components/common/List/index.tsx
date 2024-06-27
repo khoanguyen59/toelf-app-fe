@@ -1,6 +1,7 @@
 import React from 'react';
+import { Title } from '../Title';
 
-import { Container, Item, Title } from './styles';
+import { Container, Item } from './styles';
 
 interface Props {
   title: string;

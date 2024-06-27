@@ -6,10 +6,10 @@ import {
   TopicChip,
   PaperWrapper,
   Item,
-  Title,
 } from './styles';
 import { List } from '@mui/material';
 import FollowSuggestion from '@components/common/FollowSuggestion';
+import { Title } from '@components/common/Title';
 
 interface ChipData {
   key: number | string;

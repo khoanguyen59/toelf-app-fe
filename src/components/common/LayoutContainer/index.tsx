@@ -7,5 +7,6 @@ export const LayoutContainer = styled('div')(({ theme }) => ({
   '@media (min-width: 500px)': {
     borderLeft: '1px solid var(--outline)',
     borderRight: '1px solid var(--outline)',
-  }
+  },
+  height: '100vw',
 }));

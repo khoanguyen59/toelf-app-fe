@@ -1,16 +1,16 @@
-import { USER_ROLE } from '@/enums/user.enum';
-import { CategoryNames, MenuNames } from '@/routers/RouteCategoryName.enum';
-import AddIcon from '@mui/icons-material/Add';
-import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
-import SettingsIcon from '@mui/icons-material/Settings';
-import TopicIcon from '@mui/icons-material/Topic';
-import SpaOutlinedIcon from '@mui/icons-material/SpaOutlined';
-import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
+import { MenuNames } from '@/routers/RouteCategoryName.enum';
 import React, { ComponentType } from 'react';
 import { matchPath } from 'react-router-dom';
-
+import {
+  HomeIcon,
+  ExploreIcon,
+  BellIcon,
+  EmailIcon,
+  FavoriteIcon,
+  ListIcon,
+  ProfileIcon,
+} from '@components/menus/MenuBar/styles';
 export interface CustomRoute {
-  category?: CategoryNames;
   path: string;
   name: MenuNames;
   title: string;
@@ -22,69 +22,79 @@ export interface CustomRoute {
   isGuarded: boolean;
 }
 
-export interface RouteCategory {
-  name: CategoryNames;
+export interface SideBarMenu {
+  name: MenuNames;
   icon: React.ReactElement;
-  dropdown?: boolean;
 }
 
-export const routeCategories: RouteCategory[] = [
+export const sideBarMenus: SideBarMenu[] = [
   {
-    name: CategoryNames.MY_PROJECTS,
-    icon: <TopicIcon />,
-    dropdown: true,
+    name: MenuNames.HOME,
+    icon: <HomeIcon />,
   },
   {
-    name: CategoryNames.TRANSACTIONS,
-    icon: <CompareArrowsIcon />,
-    dropdown: true,
+    name: MenuNames.EXPLORE,
+    icon: <ExploreIcon />,
   },
   {
-    name: CategoryNames.REGISTER,
-    icon: <AddIcon />,
-    dropdown: true,
+    name: MenuNames.NOTIFICATIONS,
+    icon: <BellIcon />,
   },
   {
-    name: CategoryNames.DECLARATIONS,
-    icon: <PlaylistAddIcon />,
-    dropdown: true,
+    name: MenuNames.MESSAGES,
+    icon: <EmailIcon />,
   },
   {
-    name: CategoryNames.ANALYSIS,
-    icon: <SpaOutlinedIcon />,
-    dropdown: false,
+    name: MenuNames.BOOKMARKS,
+    icon: <FavoriteIcon />,
   },
   {
-    name: CategoryNames.SETTINGS,
-    icon: <SettingsIcon />,
-    dropdown: true,
+    name: MenuNames.TOPICS,
+    icon: <ListIcon />,
   },
+  {
+    name: MenuNames.PROFILE,
+    icon: <ProfileIcon />,
+  }
 ];
 
-export const guardRoutes: CustomRoute[] = [];
+export const guardRoutes: CustomRoute[] = [
+  
+];
 
 export const defaultRoutes: CustomRoute[] = [
   {
-    path: '/favorite-topics',
-    name: MenuNames.FAVORITE_TOPICS,
+    path: '/topics',
+    name: MenuNames.TOPICS,
     title: 'Select your favirte topics',
     exact: true,
     component: React.lazy(() => import('@/pages/home/FavoriteTopics')),
     isLayout: false,
-    isMenu: false,
+    isMenu: true,
     isMobileMenu: false,
     isGuarded: true,
   },
   {
-    path: '/',
-    name: MenuNames.VISITOR,
-    title: 'Visitor',
+    path: '/home',
+    name: MenuNames.HOME,
+    title: 'Home',
     exact: false,
     component: React.lazy(() => import('@/pages/home/Sample')),
     isLayout: false,
-    isMenu: false,
+    isMenu: true,
     isMobileMenu: false,
     isGuarded: true,
+  },
+  {
+    path: '/sign-in',
+    name: MenuNames.LOGIN,
+    title: 'Sign in',
+    exact: false,
+    component: React.lazy(() => import('@/pages/account/Login')),
+    isLayout: false,
+    isMenu: false,
+    isMobileMenu: false,
+    isGuarded: false,
   },
 ];
 
@@ -94,18 +104,4 @@ export const currentRoute = () => {
   return guardRoutes.find((route) =>
     matchPath(window.location.pathname, route.path)
   );
-};
-
-export const getRouteByPathname = (pathname: string) => {
-  const matchedRoute = guardRoutes.find((route) => matchPath(pathname, route.path));
-
-  return matchedRoute;
-};
-
-export const getDefaultRouteByCategory = (category: CategoryNames) => {
-  const matchedRoutes = guardRoutes.find(
-    (route) => route.category && route.category === category
-  );
-
-  return matchedRoutes;
 };

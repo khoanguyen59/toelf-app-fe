@@ -11,12 +11,10 @@ class AuthenticateService {
   public async checkToken(
     accessToken: string,
     refreshToken: string,
-    visitedAsGuest?: boolean
   ): Promise<InfoUserWidthCredential | undefined> {
     const result = await http.post(`${this.prefix}/check-token`, {
       accessToken,
       refreshToken,
-      visitedAsGuest,
     });
     return result?.data?.result;
   }

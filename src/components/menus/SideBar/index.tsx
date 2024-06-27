@@ -6,10 +6,10 @@ import News from '../../common/News';
 import {
   Container,
   SearchWrapper,
-  SearchInput,
   SearchIcon,
   Body,
 } from './styles';
+import { SearchInput } from '@components/common/SearchInput';
 
 const SideBar: React.FC = () => {
   return (

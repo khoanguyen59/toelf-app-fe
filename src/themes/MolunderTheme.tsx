@@ -63,9 +63,9 @@ const LinkBehavior = React.forwardRef<
 let theme = createTheme({
   palette: {
     primary: {
-      main: '#006666',
-      light: '#449494',
-      dark: '#005a66',
+      main: '#33a1f2',
+      light: '#2c8ed6',
+      dark: '#011017',
       '50': '#323232',
       '100': '#ff0000',
       '200': '#efa064',
@@ -73,7 +73,7 @@ let theme = createTheme({
       '400': '#0a2f2f',
     },
     secondary: {
-      main: 'rgba(158, 54, 15, 1)',
+      main: '#15181c',
     },
     text: {
       primary: 'rgba(0, 0, 0, 0.87)',
@@ -575,6 +575,16 @@ theme = createTheme(theme, {
         },
       },
     },
+
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          '&::before': {
+            borderTop: `1px solid ${theme.palette.primary.main}`
+          }
+        },
+      },
+    }
     // MuiButton: { //for example if you want to do changes to button with  variant contained
     //   styleOverrides: {
     //     contained: {

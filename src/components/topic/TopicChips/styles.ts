@@ -64,8 +64,3 @@ export const Item = styled('div')(({ theme }) => ({
     paddingBottom: '17px',
   }
 }));
-
-export const Title = styled('div')(({ theme }) => ({
-  fontWeight: 'bold',
-  fontSize: '19px',
-}));

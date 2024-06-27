@@ -44,14 +44,14 @@ const Router = () => {
       retrieveFromStorage('accessToken') || retrieveFromCookie('accessToken');
     const refreshToken =
       retrieveFromStorage('refreshToken') || retrieveFromCookie('refreshToken');
+
     const noAuthRoute = [
-      ...defaultRoutes.filter((r) => r.name !== MenuNames.LOGIN),
+      ...defaultRoutes,
       ...publicRoutes,
       ...notGuardRoutes,
     ];
 
-    const failedAuth =
-      (!accessToken || !refreshToken);
+    const failedAuth = !accessToken || !refreshToken;
 
     // if (failedAuth) {
     //   const isPathMatched =
@@ -65,27 +65,11 @@ const Router = () => {
 
     if ((accessToken || refreshToken) && !authenticationStore.loggedUser) {
       const storageLoggedUser = retrieveFromCookie('loggedUser');
-      const visitedAsGuest = storageLoggedUser
-        ? JSON.parse(storageLoggedUser)?.visitedAsGuest
-        : false;
-      const customerDeclarationLink = storageLoggedUser
-        ? JSON.parse(storageLoggedUser)?.customerDeclarationLink
-        : null;
-
-      if (
-        visitedAsGuest &&
-        customerDeclarationLink
-      ) {
-        setIsChecked(true);
-        return logout();
-      }
 
       await authenticationStore
         .checkToken(
           accessToken,
           refreshToken,
-          visitedAsGuest,
-          customerDeclarationLink
         )
         .then(() => {
           // if (redirectTo) navigate(redirectTo);

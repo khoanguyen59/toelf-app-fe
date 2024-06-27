@@ -146,18 +146,12 @@ class AuthenticationStore {
   async checkToken(
     accessToken?: string,
     refreshToken?: string,
-    visitedAsGuest?: boolean,
-    customerDeclarationLink?: string | null
   ): Promise<void> {
     let data = await authenticateService.checkToken(
       accessToken,
       refreshToken,
-      visitedAsGuest
     );
     if (data) {
-      if (visitedAsGuest && customerDeclarationLink) {
-        data = { ...data, customerDeclarationLink };
-      }
       this.saveUser(data);
       if (!accessToken && data.accessToken) {
         this._setCurrentInfo(data, false);
