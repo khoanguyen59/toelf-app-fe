@@ -380,7 +380,7 @@ theme = createTheme(theme, {
       styleOverrides: {
         root: {
           borderRadius: 4,
-          '&:before': {
+          '&::before': {
             borderBottom: '1px solid rgba(0,0,0,0.38)',
             borderRadius: 4,
           },
@@ -580,6 +580,9 @@ theme = createTheme(theme, {
       styleOverrides: {
         root: {
           '&::before': {
+            borderTop: `1px solid ${theme.palette.primary.main}`
+          },
+          '&::after': {
             borderTop: `1px solid ${theme.palette.primary.main}`
           }
         },

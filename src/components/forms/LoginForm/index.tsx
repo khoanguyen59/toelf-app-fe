@@ -17,13 +17,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { theme } from '@/themes/MolunderTheme';
 import { useStore } from '@/RootStoreProvider';
-import ControlledInputText from '@components/common/ControlledInputText';
 import CustomCheckBox from '@components/common/CustomCheckBox';
 import Button from '@components/common/Button';
 import { SearchInput } from '@components/common/SearchInput';
-import { Body } from './styles';
+import { Body, Item } from './styles';
 import { Title } from '@components/common/Title';
-import { Item } from '@components/topic/TopicChips/styles';
 
 interface ComponentProps {
   setEmail: (value: string) => void;
@@ -36,17 +34,6 @@ const LoginForm = (props: ComponentProps) => {
   const { authenticationStore } = useStore();
   const { loginFormValue, errorLoginFormValue } = authenticationStore;
   const isWeb = useMediaQuery(theme.breakpoints.up('sm'));
-
-  const { t } = useTranslation();
-  const {
-    TITLE_EMAIL,
-    TITLE_PASSWORD,
-    TITLE_FORGOT_PASSWORD,
-    TITLE_KEEP_ME_LOGIN,
-    BUTTONS_LOGIN,
-    ACCOUNT_CREATE,
-    TITLE_REQUIRE,
-  } = I18N;
 
   const {
     setEmail,

@@ -22,3 +22,14 @@ export const LoginButton = styled('button')(({ theme }) => ({
     fontSize: '15px',
   }
 }));
+
+export const Item = styled('div')(({ theme }) => ({
+  margin: '0 auto',
+  padding: '10px 16px',
+  '&:first-child': {
+    paddingTop: '13px',
+  },
+  '&:last-child': {
+    paddingBottom: '17px',
+  }
+}));

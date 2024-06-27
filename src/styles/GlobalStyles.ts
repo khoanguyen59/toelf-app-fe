@@ -24,7 +24,8 @@ export default createGlobalStyle`
   }
 
   html {
-    background: var(--primary);
+    background: url('/lecture-ai-background.jpg');
+    background-size: cover;
   }
 
   :root {

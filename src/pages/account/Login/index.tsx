@@ -6,6 +6,7 @@ import Login from '@components/account/Login';
 import { AppContainer } from '@components/common/AppContainer';
 import { AppWrapper } from '@components/common/AppWrapper';
 import TopicChips from '@components/topic/TopicChips';
+import MenuBar from '@components/menus/MenuBar';
 
 const useQuery = () => {
   const { search } = useLocation();
