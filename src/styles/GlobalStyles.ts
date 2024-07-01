@@ -15,17 +15,15 @@ export default createGlobalStyle`
 
     width: 100%;
     height: 100%;
+    background-image: url('/lecture-ai-background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
   }
 
   *, button, input {
     border: 0;
     background: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-  }
-
-  html {
-    background: url('/lecture-ai-background.jpg');
-    background-size: cover;
   }
 
   :root {

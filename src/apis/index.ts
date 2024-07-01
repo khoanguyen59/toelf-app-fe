@@ -24,9 +24,9 @@ axiosInstance.interceptors.request.use((config: any) => {
   const token =
     retrieveFromStorage('accessToken') || retrieveFromCookie('accessToken');
   if (!!token && !config.url.includes('users/login')) {
-    config.headers.common['Authorization'] = `Bearer ${token}`;
+    config.headers['Authorization'] = `Bearer ${token}`;
   }
-  config.headers.common['Access-Control-Allow-Origin'] = '*';
+  config.headers['Access-Control-Allow-Origin'] = '*';
   return config;
 });
 

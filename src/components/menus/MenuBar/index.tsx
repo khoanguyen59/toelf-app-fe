@@ -1,5 +1,6 @@
 import { SideBarMenu, sideBarMenus } from '@/routers/routes';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '../../common/Button';
 
@@ -16,12 +17,13 @@ import {
 } from './styles';
 
 const MenuBar: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Topside>
         <Logo />
         {sideBarMenus.map((menu: SideBarMenu) => (
-          <MenuButton>
+          <MenuButton onClick={() => navigate(menu.path || '/home')}>
             {menu.icon}
             <span>{menu.name}</span>
           </MenuButton>

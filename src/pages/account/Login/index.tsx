@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 import React, { useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useStore } from '@/RootStoreProvider';
 import Login from '@components/account/Login';
 import { AppContainer } from '@components/common/AppContainer';
@@ -15,6 +15,7 @@ const LoginPage = () => {
   const { authenticationStore } = useStore();
   const { loginFormValue } = authenticationStore;
   const location = useLocation();
+  const navigate = useNavigate();
   const query = useQuery();
 
   const verified = location && location.state && !!location.state['verified'];
@@ -32,7 +33,7 @@ const LoginPage = () => {
   };
 
   const handleLogin = async (): Promise<void> => {
-    await authenticationStore.login(history);
+    await authenticationStore.login(navigate);
   };
 
   return (

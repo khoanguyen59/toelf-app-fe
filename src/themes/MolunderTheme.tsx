@@ -505,18 +505,6 @@ theme = createTheme(theme, {
       },
     },
 
-    MuiTable: {
-      defaultProps: {},
-      styleOverrides: {
-        root: {
-          borderSpacing: '0px 4px',
-          backgroundColor: theme.palette.background.default,
-          marginTop: '-4px',
-          marginBottom: '-4px',
-        },
-      },
-    },
-
     MuiTableHead: {
       defaultProps: {},
       styleOverrides: {

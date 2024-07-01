@@ -25,12 +25,14 @@ export interface CustomRoute {
 export interface SideBarMenu {
   name: MenuNames;
   icon: React.ReactElement;
+  path?: string;
 }
 
 export const sideBarMenus: SideBarMenu[] = [
   {
     name: MenuNames.HOME,
     icon: <HomeIcon />,
+    path: '/home',
   },
   {
     name: MenuNames.EXPLORE,
@@ -51,6 +53,7 @@ export const sideBarMenus: SideBarMenu[] = [
   {
     name: MenuNames.TOPICS,
     icon: <ListIcon />,
+    path: '/topics',
   },
   {
     name: MenuNames.PROFILE,
@@ -59,10 +62,6 @@ export const sideBarMenus: SideBarMenu[] = [
 ];
 
 export const guardRoutes: CustomRoute[] = [
-  
-];
-
-export const defaultRoutes: CustomRoute[] = [
   {
     path: '/topics',
     name: MenuNames.TOPICS,
@@ -85,6 +84,9 @@ export const defaultRoutes: CustomRoute[] = [
     isMobileMenu: false,
     isGuarded: true,
   },
+];
+
+export const defaultRoutes: CustomRoute[] = [
   {
     path: '/sign-in',
     name: MenuNames.LOGIN,

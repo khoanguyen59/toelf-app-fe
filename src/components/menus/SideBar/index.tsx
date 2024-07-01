@@ -15,7 +15,7 @@ const SideBar: React.FC = () => {
   return (
     <Container>
       <SearchWrapper>
-        <SearchInput placeholder="Search Twitter" />
+        <SearchInput placeholder="Search Topics, Lecture,..." />
         <SearchIcon />
       </SearchWrapper>
 
@@ -24,9 +24,9 @@ const SideBar: React.FC = () => {
           <List
             title="You might like"
             elements={[
-              <FollowSuggestion name="Wuldku Kizon" nickname="@wkizon" />,
-              <FollowSuggestion name="Oriny Figash" nickname="@OrinyFi22" />,
-              <FollowSuggestion name="Maxe Nenial" nickname="@maxe_nenial" />,
+              <FollowSuggestion label="Wuldku Kizon" subLabel="@wkizon" />,
+              <FollowSuggestion label="Oriny Figash" subLabel="@OrinyFi22" />,
+              <FollowSuggestion label="Maxe Nenial" subLabel="@maxe_nenial" />,
             ]}
           />
 

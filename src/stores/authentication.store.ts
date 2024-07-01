@@ -62,7 +62,6 @@ class AuthenticationStore {
       logout: action,
       saveUser: action,
       setRedirectUrl: action,
-      proceedAsGuest: action,
     });
   }
 
@@ -97,33 +96,25 @@ class AuthenticationStore {
     }
   }
 
-  private _redirectAfterLogin(history: any): void {
+  private _redirectAfterLogin(navigate: any): void {
     if (this.loggedUser) {
-      return history.push(this.redirectUrl ?? '/my-projects');
+      return navigate(this.redirectUrl ?? '/home');
     }
-    return history.push('/login');
+    return navigate('/login');
   }
 
   saveUser(data: any): void {
     this.loggedUser = data;
   }
 
-  async login(history: any): Promise<void> {
+  async login(navigate: any): Promise<void> {
     if (this._isErrorLogin()) {
       return;
     }
     const data = await authenticateService.login(this.loginFormValue);
     this._setCurrentInfo(data, this.loginFormValue.rememberMe);
     this.loginFormValue = this.loginFormValueInit;
-    this._redirectAfterLogin(history);
-  }
-
-  async proceedAsGuest(history: any, guestUserData: InfoUserWidthCredential) {
-    this._setCurrentInfo(
-      { ...guestUserData },
-      false
-    );
-    this._redirectAfterLogin(history);
+    this._redirectAfterLogin(navigate);
   }
 
   private _isErrorLogin(): boolean {

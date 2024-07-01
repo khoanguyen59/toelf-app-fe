@@ -36,7 +36,6 @@ const GuardLayout = () => {
         sx={{
           display: 'flex',
           minHeight: '100vh',
-          backgroundColor: (theme) => theme.palette.background.container,
         }}
       >
         <CssBaseline />
