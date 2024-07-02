@@ -5,6 +5,6 @@ export interface CreateUser {
   fullName: string;
   role?: USER_ROLE;
   phoneNumber: string;
-  password: string;
+  password?: string;
   companyId?: number;
 }

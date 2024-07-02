@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import data from '../../../data.json';
+import data from '../../../dummyData/tweets.json';
 
 import {
   Container,

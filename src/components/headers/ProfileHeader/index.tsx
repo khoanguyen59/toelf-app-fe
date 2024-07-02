@@ -1,12 +1,18 @@
-import React from 'react';
+import { useStore } from '@/RootStoreProvider';
+import { InfoUser } from '@dto/users/InfoUser.dto';
+import { observer } from 'mobx-react';
+import React, { useEffect } from 'react';
 import { BackIcon, Header, ProfileInfo } from './styles';
 
-interface Props {
-  name: string;
-  numberOfTweets: number;
-}
 
-const ProfileHeader: React.FC<Props> = ({ name, numberOfTweets }) => {
+const ProfileHeader: React.FC = () => {
+  const { userStore } = useStore();
+  const { profileUser } = userStore;
+
+  useEffect(() => {
+    userStore.getUser();
+  }, []);
+  
   return (
     <Header>
       <button>
@@ -14,11 +20,11 @@ const ProfileHeader: React.FC<Props> = ({ name, numberOfTweets }) => {
       </button>
 
       <ProfileInfo>
-        <strong>{name}</strong>
-        <span>{`${numberOfTweets} Tweets`}</span>
+        <strong>{profileUser?.fullName}</strong>
+        {/* <span>{`${numberOfTweets} Tweets`}</span> */}
       </ProfileInfo>
     </Header>
   );
 };
 
-export default ProfileHeader;
+export default observer(ProfileHeader);

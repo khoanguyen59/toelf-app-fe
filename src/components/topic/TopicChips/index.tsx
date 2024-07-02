@@ -24,6 +24,10 @@ const TopicChips = (props: ComponentProps) => {
   //   setChipData((chips) => chips.filter((chip) => chip.key !== chipToDelete.key));
   // };
 
+  const loadMoreTopics = () => {
+    
+  }
+
   return (
     <Container>
       <Item>
@@ -46,6 +50,7 @@ const TopicChips = (props: ComponentProps) => {
           <TopicChip
             icon={<TagFacesIcon />}
             label={'Show more...'}
+            onClick={loadMoreTopics}
           />
         </ListItem>
       </PaperWrapper>

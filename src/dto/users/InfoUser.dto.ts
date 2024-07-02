@@ -1,4 +1,4 @@
-import { USER_ROLE } from '@/enums/user.enum';
+import { InfoTopic } from "@dto/topics/InfoTopic.dto";
 
 export interface InfoUser {
   id: number;
@@ -6,22 +6,13 @@ export interface InfoUser {
   updatedAt: Date;
   email: string;
   fullName: string;
-  role: USER_ROLE;
   phoneNumber: string;
-  companyId?: number;
-  password: string;
-  locationId?: number;
-  location?: Location;
-  focusLocationId?: number;
-  focusLocation?: Location;
+  password?: string;
   isApproved?: boolean;
-  brrCode?: string;
-  customerId?: number;
+  topics?: InfoTopic[];
 }
 
 export interface InfoUserWidthCredential extends InfoUser {
   accessToken: string;
   refreshToken: string;
-  visitedAsGuest?: boolean;
-  customerDeclarationLink?: string;
 }

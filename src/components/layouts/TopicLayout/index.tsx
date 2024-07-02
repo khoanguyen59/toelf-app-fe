@@ -15,7 +15,7 @@ const TopicLayout = (props: ComponentProps) => {
   const { topics, selectedTopics } = props; 
   return (
     <LayoutContainer>
-      <ProfileHeader name={'Elton Lazzarin'} numberOfTweets={432}/>
+      <ProfileHeader />
       <TopicChips 
         topics={topics}
         selectedTopics={selectedTopics}

@@ -3,11 +3,11 @@ import { InfoUser } from '@/dto/users/InfoUser.dto';
 import { USER_TYPE, USER_ROLE } from '@/enums/user.enum';
 import { action, makeObservable, observable } from 'mobx';
 import { toast } from 'react-toastify';
-import { InfoInviteUser } from '@/dto/users/InfoInviteUser.dto';
 
 class UserStore {
   profileType: USER_TYPE;
   userCount: number;
+  profileUser: InfoUser;
 
   constructor() {
     this.profileType = USER_TYPE.PERSON;
@@ -16,6 +16,7 @@ class UserStore {
     makeObservable(this, {
       profileType: observable,
       userCount: observable,
+      profileUser: observable,
       getUser: action,
       getUserById: action,
       submitProfileForm: action,
@@ -23,12 +24,12 @@ class UserStore {
       setProfileType: action,
       registerUser: action,
       resetProfileType: action,
-      approveUser: action,
     });
   }
 
   async getUser(): Promise<void> {
     const data = await userService.getUser();
+    this.profileUser = data;
   }
 
   async getUserById(id: number): Promise<void> {
@@ -72,16 +73,6 @@ class UserStore {
   resetProfileType = () => {
     this.profileType = USER_TYPE.PERSON;
   };
-
-  async inviteUser(model: InfoInviteUser): Promise<boolean> {
-    const result = await userService.inviteUser(model);
-    return result;
-  }
-
-  async approveUser(userId: number): Promise<boolean> {
-    const result = await userService.approveUser(userId);
-    return result;
-  }
 }
 
 export default UserStore;
