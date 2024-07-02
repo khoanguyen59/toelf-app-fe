@@ -7,7 +7,7 @@ import { theme as MolunderTheme } from './themes/MolunderTheme';
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <ThemeProvider theme={MolunderTheme}>
       <Suspense fallback={<div>Loading... </div>}>
         <BrowserRouter>
@@ -15,5 +15,5 @@ root.render(
         </BrowserRouter>
       </Suspense>
     </ThemeProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

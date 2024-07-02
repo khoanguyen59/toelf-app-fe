@@ -46,6 +46,8 @@ export const Logo = styled('div')(({ theme }) => ({
 }));
 
 export const MenuButton = styled('button')(({ theme }) => ({
+  background: 'var(--secondary)',
+  width: '-webkit-fill-available',
   display: 'flex',
   alignItems: 'center',
   flexShrink: 0,

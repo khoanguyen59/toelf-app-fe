@@ -6,7 +6,7 @@ import {
 export const Container = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  width: 'min(601px, 100%)',
+  width: 'min(901px, 100%)',
   '@media (min-width: 500px)': {
     borderLeft: '1px solid var(--outline)',
     borderRight: '1px solid var(--outline)',

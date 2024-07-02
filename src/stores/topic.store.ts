@@ -12,15 +12,12 @@ class TopicStore {
 
   constructor() {
     this.topics = [];
-    this.selectedTopics = [];
     this.topicCount = 0;
 
     makeObservable(this, {
       topics: observable,
-      selectedTopics: observable,
       topicCount: observable,
       getTopics: action,
-      getSelectedTopicsByUser: action,
     });
   }
 
@@ -28,11 +25,6 @@ class TopicStore {
     const { data, count } = await topicService.getTopics(query);
     this.topics = this.topics.concat(data);
     this.topicCount += count; 
-  }
-
-  async getSelectedTopicsByUser(userId: number): Promise<void> {
-    const data = await topicService.getSelectedTopicsByUser(userId);
-    this.selectedTopics = data;
   }
 }
 

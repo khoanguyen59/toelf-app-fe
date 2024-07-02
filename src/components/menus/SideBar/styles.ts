@@ -16,7 +16,6 @@ export const SearchWrapper = styled('div')(({ theme }) => ({
   position: 'fixed',
   top: 0,
   zIndex: 2,
-  background: 'var(--primary)',
   maxHeight: '57px',
 }));
 
@@ -34,4 +33,5 @@ export const Body = styled('div')(({ theme }) => ({
   '> div + div': {
     marginTop: '15px',
   },
+  minWidth: '399px',
 }));

@@ -9,7 +9,6 @@ import {
   Topside,
   Logo,
   MenuButton,
-
   Botside,
   Avatar,
   ProfileData,
@@ -32,7 +31,7 @@ const MenuBar: React.FC = () => {
           <span>Tweet</span>
         </Button>
       </Topside>
-      <Botside>
+      {/* <Botside>
         <Avatar>
           <img
             src="https://avatars1.githubusercontent.com/u/53025782?s=400&u=f1ffa8eaccb8545222b7c642532161f11e74a03d&v=4"
@@ -44,7 +43,7 @@ const MenuBar: React.FC = () => {
           <span>@elton_lazzarin</span>
         </ProfileData>
         <ExitIcon />
-      </Botside>
+      </Botside> */}
     </Container>
   );
 };

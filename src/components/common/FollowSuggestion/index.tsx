@@ -9,10 +9,10 @@ interface Props {
   label: string;
   subLabel: string;
   endText?: string;
+  handleEndButtonClick?: () => void;
 }
 
-const FollowSuggestion: React.FC<Props> = ({ icon, imgSrc, label, subLabel, endText }) => {
-  console.log(icon);
+const FollowSuggestion: React.FC<Props> = ({ icon, imgSrc, label, subLabel, endText, handleEndButtonClick }) => {
   return (
     <Container>
       <div>
@@ -26,7 +26,7 @@ const FollowSuggestion: React.FC<Props> = ({ icon, imgSrc, label, subLabel, endT
           <span>{subLabel}</span>
         </Info>
       </div>
-      <FollowButton outlined>{endText || 'Follow'}</FollowButton>
+      <FollowButton outlined onClick={handleEndButtonClick}>{endText || 'Follow'}</FollowButton>
     </Container>
   );
 };

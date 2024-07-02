@@ -3,23 +3,13 @@ import TopicChips from '../../topic/TopicChips';
 import ProfileHeader from '@components/headers/ProfileHeader';
 import BottomNavigationMenu from '@components/menus/BottomNavigationMenu';
 import { LayoutContainer } from '@components/common/LayoutContainer';
-import { InfoTopic } from '@dto/topics/InfoTopic.dto';
 import { observer } from 'mobx-react';
 
-interface ComponentProps {
-  topics: InfoTopic[];
-  selectedTopics: InfoTopic[];
-}
-
-const TopicLayout = (props: ComponentProps) => {
-  const { topics, selectedTopics } = props; 
+const TopicLayout = () => {
   return (
     <LayoutContainer>
       <ProfileHeader />
-      <TopicChips 
-        topics={topics}
-        selectedTopics={selectedTopics}
-      />
+      <TopicChips />
       <BottomNavigationMenu />
     </LayoutContainer>
   );
