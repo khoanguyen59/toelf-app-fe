@@ -50,6 +50,7 @@ export const sideBarMenus: SideBarMenu[] = [
   {
     name: MenuNames.BOOKMARKS,
     icon: <FavoriteIcon />,
+    path: '/bookmarks',
   },
   {
     name: MenuNames.TOPICS,
@@ -59,6 +60,7 @@ export const sideBarMenus: SideBarMenu[] = [
   {
     name: MenuNames.PROFILE,
     icon: <ProfileIcon />,
+    path: '/profile',
   }
 ];
 
@@ -69,6 +71,17 @@ export const guardRoutes: CustomRoute[] = [
     title: 'Lectures',
     exact: true,
     component: React.lazy(() => import('@/pages/home/Lectures')),
+    isLayout: false,
+    isMenu: true,
+    isMobileMenu: false,
+    isGuarded: true,
+  },
+  {
+    path: '/bookmarks',
+    name: MenuNames.BOOKMARKS,
+    title: 'Bookmarks',
+    exact: true,
+    component: React.lazy(() => import('@/pages/home/Bookmarks')),
     isLayout: false,
     isMenu: true,
     isMobileMenu: false,
@@ -86,11 +99,22 @@ export const guardRoutes: CustomRoute[] = [
     isGuarded: true,
   },
   {
+    path: '/profile',
+    name: MenuNames.HOME,
+    title: 'Home',
+    exact: false,
+    component: React.lazy(() => import('@/pages/home/Profile')),
+    isLayout: false,
+    isMenu: true,
+    isMobileMenu: false,
+    isGuarded: true,
+  },
+  {
     path: '/home',
     name: MenuNames.HOME,
     title: 'Home',
     exact: false,
-    component: React.lazy(() => import('@/pages/home/Sample')),
+    component: React.lazy(() => import('@/pages/home/Profile')),
     isLayout: false,
     isMenu: true,
     isMobileMenu: false,

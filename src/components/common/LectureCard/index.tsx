@@ -58,7 +58,7 @@ const LectureCard = (props: ComponentProps) => {
         <Body>
           <Content>
             <Header>
-              <strong>{lecture.name}</strong>
+              {/* <strong>{lecture.name}</strong> */}
               <span>{(lecture.topics || []).map((topic) => topic.name).join(` ,`)}</span>
               <Dot />
               <time>{lecture.createdAt}</time>
@@ -74,13 +74,15 @@ const LectureCard = (props: ComponentProps) => {
               >View detail</Link> */}
             </Description>
             <Stack direction='row'> 
-              {lecture.stringifiedTopics.map((topic) => {
+              {lecture.stringifiedTopics.map((topic, index) => {
                 return (
                   <Link 
                     href={`/lectures/?hashtag=${topic}`}
+                    key={index}
                     sx={{
                       mr: 1, 
                       textDecoration: 'none',
+                      fontSize: '14px',
                       fontWeight: 'bold',
                       '&:hover': {
                         textDecoration: 'underline',

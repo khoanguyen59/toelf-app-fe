@@ -21,8 +21,8 @@ const MenuBar: React.FC = () => {
     <Container>
       <Topside>
         <Logo />
-        {sideBarMenus.map((menu: SideBarMenu) => (
-          <MenuButton onClick={() => navigate(menu.path || '/home')}>
+        {sideBarMenus.map((menu: SideBarMenu, index) => (
+          <MenuButton onClick={() => navigate(menu.path || '/home')} key={index}>
             {menu.icon}
             <span>{menu.name}</span>
           </MenuButton>

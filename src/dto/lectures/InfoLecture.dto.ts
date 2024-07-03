@@ -22,3 +22,11 @@ export interface InfoLecture {
   avatar?: string;
   retweet?: boolean;
 }
+
+export interface InfoLectureExtended extends InfoLecture {
+  hashtag?: string;
+}
+export interface InfoBookmark extends InfoLectureExtended {
+  bookmarkedTime?: Date;
+  userId?: number;
+}

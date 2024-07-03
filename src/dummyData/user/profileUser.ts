@@ -40,4 +40,5 @@ export const PROFILE_USER: InfoUser = {
       categories: [TopicCategory.Sports] 
     },
   ],
+  bookmardIds: [1, 2, 5, 7, 8, 10],
 }

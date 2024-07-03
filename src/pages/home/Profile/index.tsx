@@ -5,7 +5,7 @@ import { AppContainer } from '@components/common/AppContainer';
 import { AppWrapper } from '@components/common/AppWrapper';
 import ProfileLayout from '@components/layouts/ProfileLayout';
 
-const Layout: React.FC = () => {
+const Profile: React.FC = () => {
   return (
     <AppContainer>
       <AppWrapper>
@@ -17,4 +17,4 @@ const Layout: React.FC = () => {
   );
 };
 
-export default Layout;
+export default Profile;
