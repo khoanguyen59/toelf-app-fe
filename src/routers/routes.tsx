@@ -35,8 +35,9 @@ export const sideBarMenus: SideBarMenu[] = [
     path: '/home',
   },
   {
-    name: MenuNames.EXPLORE,
+    name: MenuNames.LECTURES,
     icon: <ExploreIcon />,
+    path: '/lectures',
   },
   {
     name: MenuNames.NOTIFICATIONS,
@@ -62,6 +63,17 @@ export const sideBarMenus: SideBarMenu[] = [
 ];
 
 export const guardRoutes: CustomRoute[] = [
+  {
+    path: '/lectures',
+    name: MenuNames.LECTURES,
+    title: 'Lectures',
+    exact: true,
+    component: React.lazy(() => import('@/pages/home/Lectures')),
+    isLayout: false,
+    isMenu: true,
+    isMobileMenu: false,
+    isGuarded: true,
+  },
   {
     path: '/topics',
     name: MenuNames.TOPICS,

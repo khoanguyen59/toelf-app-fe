@@ -1,6 +1,6 @@
 export enum MenuNames {
   HOME = 'Home',
-  EXPLORE = 'Explore',
+  LECTURES = 'Lectures',
   NOTIFICATIONS = 'Notifications',
   MESSAGES = 'Messages',
   BOOKMARKS = 'Bookmarks',

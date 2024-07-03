@@ -1,4 +1,3 @@
-import userService from '@/apis/user.service';
 import { action, makeObservable, observable } from 'mobx';
 import { toast } from 'react-toastify';
 import { InfoTopic } from '@dto/topics/InfoTopic.dto';

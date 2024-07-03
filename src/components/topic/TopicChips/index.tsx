@@ -37,7 +37,7 @@ const TopicChips = (props: ComponentProps) => {
   const { topics, topicCount } = topicStore;
   const { profileUser } = userStore;
   const [selectedTopics, setSelectedTopics] = useState<InfoTopic[]>([]);
-  console.log(selectedTopics);
+
   useEffect(() => {
     topicStore.getTopics(query);
     userStore.getUser();

@@ -1,3 +1,4 @@
+import { InfoLecture } from "@dto/lectures/InfoLecture.dto";
 import { InfoTopic } from "@dto/topics/InfoTopic.dto";
 
 export interface InfoUser {
@@ -10,6 +11,8 @@ export interface InfoUser {
   password?: string;
   isApproved?: boolean;
   topics?: InfoTopic[];
+  bookmarks?: InfoLecture[];
+  bookmardIds?: number[];
 }
 
 export interface InfoUserWidthCredential extends InfoUser {

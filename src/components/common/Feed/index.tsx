@@ -1,15 +1,20 @@
+import { Box } from '@mui/material';
 import React from 'react';
-import Tweet from '../Tweet';
-import { Container, Tab, Tweets } from './styles';
+import LectureCard from '../LectureCard';
 
 const Feed: React.FC = () => {
   return (
-    <Container>
-      <Tab>Tweets</Tab>
-      <Tweets>
-        <Tweet />
-      </Tweets>
-    </Container>
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box 
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          flexShrink: 0,
+        }}
+      >
+        <LectureCard />
+      </Box>
+    </Box>
   );
 };
 

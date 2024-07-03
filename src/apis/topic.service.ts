@@ -3,7 +3,6 @@ import { DUMMY_TOPICS } from '@/dummyData/topic/topics';
 import { PROFILE_USER } from '@/dummyData/user/profileUser';
 import { PaginationRequest, PaginationResult } from '@dto/commons/PaginationRequest.dto';
 import { InfoTopic } from '@dto/topics/InfoTopic.dto';
-import { TopicCategory } from '@enums/topic.enum';
 
 class TopicService {
   prefix = 'topics';
@@ -14,7 +13,7 @@ class TopicService {
     const unselectedTopics = DUMMY_TOPICS.filter((topic) => {
       return !PROFILE_USER.topics.map((t) => t.tag).includes(topic.tag);
     });
-    const result = unselectedTopics.slice(query.skip, query.skip + query.take - 1);
+    const result = unselectedTopics.slice(query.skip, query.skip + query.take);
     return {
       data: result,
       count: result.length
