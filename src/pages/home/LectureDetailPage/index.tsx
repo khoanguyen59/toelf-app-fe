@@ -4,18 +4,18 @@ import { observer } from 'mobx-react';
 import React from 'react';
 import { AppContainer } from '@components/common/AppContainer';
 import { AppWrapper } from '@components/common/AppWrapper';
-import LectureLayout from '@components/layouts/LectureLayout';
+import LectureDetailLayout from '@components/layouts/LectureDetailLayout';
 
-const Lectures = () => {
+const LectureDetailPage = () => {
   return (
     <AppContainer>
       <AppWrapper>
         <MenuBar />
-        <LectureLayout />
+        <LectureDetailLayout />
         <SideBar />
       </AppWrapper>
     </AppContainer>
   );
 };
 
-export default observer(Lectures);
+export default observer(LectureDetailPage);

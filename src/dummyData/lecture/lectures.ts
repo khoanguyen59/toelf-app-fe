@@ -12,7 +12,16 @@ export const LECTURES: InfoLecture[] = [
     thumbnailUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ6M-XYgezE-OUIX3KXQsmc7CWmh7FLHSpkFw&usqp=CAU",
     numberOfTestsTaken: 96,
     numberOfBookmarks: 83,
-    numberOfLikes: 55
+    numberOfLikes: 55,
+    fullScript: `
+      <p>A nuclear family is a family unit consisting of an adult male and female and dependent children. It is regarded by some sociologists (in particular functionalists) as the basic universal form of family structure.</p>
+      <p>The (white) nuclear family is sometimes referred to as the cereal packet family, because of its frequent portrayal by advertisers as the norm.</p>
+      <p>The concept of the nuclear family is thought to have arisen in the Western world during the Industrial Revolution, when families left farms and moved to small towns and cities for work. During this time, young people began to delay marriage and childbearing, living instead with their parents until they had established a career.</p>
+      <p>Functionalists such as Parsons suggest that the nuclear family replaced the extended family as the dominant form in industrial societies because it provided a better “fit”, and more closely matched the needs of society.</p>
+      <p>Despite the fact that by 2000 only 21% of all house holds consisted of a married or cohabiting couple with dependent children, the notion of the nuclear family remains central to family ideology.</p>
+      <p>Sociologists and politicians of the New Right frequently suggest that many social problems in Britain stem from the fact that not enough children are being brought up in stable, two-parent families.</p>
+    `,
+    audioFileUrl: 'https://www.examenglish.com/TOEFL/audio/toefl_con2.mp3'
   },
   {
     id: 2,

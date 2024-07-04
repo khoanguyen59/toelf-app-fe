@@ -1,5 +1,5 @@
 import { DEFAULT_PAGE_SIZE } from '@/constants/pagination.constants';
-import LectureCard from '@components/common/LectureCard';
+import LectureCard from '@components/lecture/LectureCard';
 import { InfoBookmark, InfoLecture } from '@dto/lectures/InfoLecture.dto';
 import { Box } from '@mui/system';
 import { observer } from 'mobx-react';
@@ -14,7 +14,6 @@ interface ComponentProps {
 
 const LectureList = (props: ComponentProps) => {
   const { lectures, lectureCount, loadMoreLectures } = props;
-  console.log(lectures, lectureCount);
   return (
     <Box
       id='lecture-scroll'

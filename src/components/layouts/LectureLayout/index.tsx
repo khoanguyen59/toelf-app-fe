@@ -1,6 +1,7 @@
 import { DEFAULT_PAGE_SIZE, FIRST_LOAD_SIZE } from '@/constants/pagination.constants';
 import { useStore } from '@/RootStoreProvider';
 import { LayoutContainer } from '@components/common/LayoutContainer';
+import LayoutHeader from '@components/headers/LayoutHeader';
 import ProfileHeader from '@components/headers/ProfileHeader';
 import LectureList from '@components/lecture/LectureList';
 import BottomNavigationMenu from '@components/menus/BottomNavigationMenu';
@@ -26,7 +27,7 @@ const LectureLayout: React.FC = () => {
 
   const { lectureStore } = useStore();
   const { lectures, lectureCount } = lectureStore;
-
+  console.log(lectures, lectureCount);
   useEffect(() => {
     lectureStore.getLectures(query);
   }, [query]);
@@ -41,7 +42,7 @@ const LectureLayout: React.FC = () => {
 
   return (
     <LayoutContainer>
-      <ProfileHeader />
+      <LayoutHeader title={`Lectures for you`} />
       <LectureList lectures={lectures} lectureCount={lectureCount} loadMoreLectures={loadMoreLectures}/>
       <BottomNavigationMenu />
     </LayoutContainer>

@@ -1,19 +1,16 @@
-import { useStore } from '@/RootStoreProvider';
-import { InfoUser } from '@dto/users/InfoUser.dto';
 import { Box } from '@mui/material';
 import { observer } from 'mobx-react';
 import React, { useEffect } from 'react';
 import { BackIcon } from './styles';
+import { SvgIconComponent } from '@mui/icons-material';
 
+interface ComponentProps {
+  title?: string;
+  icon?: SvgIconComponent;
+};
 
-const ProfileHeader: React.FC = () => {
-  const { userStore } = useStore();
-  const { profileUser } = userStore;
-
-  useEffect(() => {
-    userStore.getUser();
-  }, []);
-  
+const LayoutHeader = (props: ComponentProps) => {
+  const { title, icon } = props;  
   return (
     <Box 
       sx={{
@@ -53,10 +50,10 @@ const ProfileHeader: React.FC = () => {
           color: 'var(--gray)',
         }
       }}>
-        <strong>{profileUser?.fullName}</strong>
+        <strong>{title}</strong>
       </Box>
     </Box>
   );
 };
 
-export default observer(ProfileHeader);
+export default observer(LayoutHeader);

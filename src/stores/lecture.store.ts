@@ -5,6 +5,7 @@ import { InfoBookmark, InfoLecture, InfoLectureExtended } from '@dto/lectures/In
 import lectureService from '@/apis/lecture.service';
 
 class LectureStore {
+  lecture: InfoBookmark | InfoLectureExtended;
   lectures: InfoLecture[];
   lectureCount: number;
   bookmarks: InfoBookmark[];
@@ -17,13 +18,20 @@ class LectureStore {
     this.bookmarkCount = 0;
 
     makeObservable(this, {
+      lecture: observable,
       lectures: observable,
       lectureCount: observable,
       bookmarks: observable,
       bookmarkCount: observable,
+      getLecture: action,
       getLectures: action,
       getBookmarks: action,
     });
+  }
+
+  async getLecture(lectureId: number): Promise<void> {
+    const data = await lectureService.getLecture(lectureId);
+    this.lecture = data;
   }
 
   async getLectures(query?: PaginationRequest<InfoLectureExtended>): Promise<void> {

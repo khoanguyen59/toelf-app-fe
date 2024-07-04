@@ -9,10 +9,6 @@ import {
   Topside,
   Logo,
   MenuButton,
-  Botside,
-  Avatar,
-  ProfileData,
-  ExitIcon,
 } from './styles';
 
 const MenuBar: React.FC = () => {

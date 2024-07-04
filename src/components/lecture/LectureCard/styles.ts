@@ -55,7 +55,7 @@ export const Content = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   width: '100%',
   marginTop: '2px',
-  paddingLeft: '59px',
+  paddingLeft: '29px',
 }));
 
 export const Header = styled('div')(({ theme }) => ({
@@ -65,6 +65,9 @@ export const Header = styled('div')(({ theme }) => ({
   whiteSpace: 'nowrap',
   '> strong': {
     marginRight: '5px',
+    '@media (max-width: 500px)': {
+      maxWidth: '200px',
+    },
   },
   '> span, time': {
     color: 'var(--gray)',
@@ -81,21 +84,6 @@ export const Dot = styled('div')(({ theme }) => ({
   width: '2px',
   height: '2px',
   margin: '0 10px',
-}));
-
-export const Description = styled('div')(({ theme }) => ({
-  fontSize: '14px',
-  marginTop: '4px',
-}));
-
-export const ImageContent = styled('div')(({ theme }) => ({
-  'img': {
-    marginTop: '12px',
-    width: '100%',
-    height: 'min(285px, max(175px, 41vw))',
-    background: 'var(--outline)',
-    borderRadius: '14px',
-  }
 }));
 
 export const Icons = styled('div')(({ theme }) => ({

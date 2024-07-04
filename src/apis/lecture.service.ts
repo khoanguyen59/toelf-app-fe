@@ -7,6 +7,13 @@ import { InfoBookmark, InfoLecture, InfoLectureExtended } from '@dto/lectures/In
 class LectureService {
   prefix = 'lectures';
 
+  public async getLecture(lectureId: number): Promise<InfoBookmark> {
+    // const result = await http.get(`${this.prefix}/:id`);
+    // return result.data.result;
+    const result = LECTURES.find((lecture) => lecture.id === lectureId);
+    return result;
+  }
+
   public async getLectures(query?: PaginationRequest<InfoLectureExtended>): Promise<PaginationResult<InfoLecture>> {
     // const result = await http.get(`${this.prefix}/`);
     // return result.data.result;

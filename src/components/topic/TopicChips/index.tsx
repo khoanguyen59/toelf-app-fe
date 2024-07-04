@@ -66,7 +66,7 @@ const TopicChips = (props: ComponentProps) => {
   return (
     <Container>
       <Item>
-        <Title>Discover new topics</Title>
+        <Title>Topics you might like</Title>
       </Item>
       <PaperWrapper>
         {topics
@@ -92,7 +92,7 @@ const TopicChips = (props: ComponentProps) => {
         </ListItem>
       </PaperWrapper>
       <Item>
-        <Title>Your topics</Title>
+        <Title>Your selected topics</Title>
       </Item>
       <PaperWrapper>
         <List sx={{ width: '100%', bgcolor: 'transparent' }}>

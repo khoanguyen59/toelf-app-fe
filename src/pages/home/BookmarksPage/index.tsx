@@ -6,7 +6,7 @@ import { AppContainer } from '@components/common/AppContainer';
 import { AppWrapper } from '@components/common/AppWrapper';
 import BookmarkLayout from '@components/layouts/BookmarkLayout';
 
-const Bookmarks = () => {
+const BookmarksPage = () => {
   return (
     <AppContainer>
       <AppWrapper>
@@ -18,4 +18,4 @@ const Bookmarks = () => {
   );
 };
 
-export default observer(Bookmarks);
+export default observer(BookmarksPage);

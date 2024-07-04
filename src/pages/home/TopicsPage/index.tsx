@@ -7,7 +7,7 @@ import { AppContainer } from '@components/common/AppContainer';
 import { AppWrapper } from '@components/common/AppWrapper';
 
 
-const FavoriteTopics = () => {
+const TopicsPage = () => {
   return (
     <AppContainer>
       <AppWrapper>
@@ -19,4 +19,4 @@ const FavoriteTopics = () => {
   );
 };
 
-export default observer(FavoriteTopics);
+export default observer(TopicsPage);
