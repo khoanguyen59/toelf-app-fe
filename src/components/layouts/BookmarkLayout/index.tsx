@@ -2,7 +2,6 @@ import { DEFAULT_PAGE_SIZE, FIRST_LOAD_SIZE } from '@/constants/pagination.const
 import { useStore } from '@/RootStoreProvider';
 import { LayoutContainer } from '@components/common/LayoutContainer';
 import LayoutHeader from '@components/headers/LayoutHeader';
-import ProfileHeader from '@components/headers/ProfileHeader';
 import LectureList from '@components/lecture/LectureList';
 import BottomNavigationMenu from '@components/menus/BottomNavigationMenu';
 import { PaginationRequest } from '@dto/commons/PaginationRequest.dto';

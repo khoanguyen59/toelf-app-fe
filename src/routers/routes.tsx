@@ -39,14 +39,14 @@ export const sideBarMenus: SideBarMenu[] = [
     icon: <ExploreIcon />,
     path: '/lectures',
   },
-  {
-    name: MenuNames.NOTIFICATIONS,
-    icon: <BellIcon />,
-  },
-  {
-    name: MenuNames.MESSAGES,
-    icon: <EmailIcon />,
-  },
+  // {
+  //   name: MenuNames.NOTIFICATIONS,
+  //   icon: <BellIcon />,
+  // },
+  // {
+  //   name: MenuNames.MESSAGES,
+  //   icon: <EmailIcon />,
+  // },
   {
     name: MenuNames.BOOKMARKS,
     icon: <FavoriteIcon />,

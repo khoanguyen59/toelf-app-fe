@@ -1,7 +1,6 @@
 import { useStore } from '@/RootStoreProvider';
 import { LayoutContainer } from '@components/common/LayoutContainer';
 import LayoutHeader from '@components/headers/LayoutHeader';
-import ProfileHeader from '@components/headers/ProfileHeader';
 import LectureCard from '@components/lecture/LectureCard';
 import BottomNavigationMenu from '@components/menus/BottomNavigationMenu';
 import { InfoLecture } from '@dto/lectures/InfoLecture.dto';
@@ -24,7 +23,7 @@ const LectureDetailLayout: React.FC = () => {
   return (
     <LayoutContainer>
       <LayoutHeader title={`Lecture #${id}`} />
-      <LectureCard lecture={lecture} isDetailed />
+        <LectureCard lecture={lecture} isDetailed />
       <BottomNavigationMenu />
     </LayoutContainer>
   );

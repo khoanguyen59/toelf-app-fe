@@ -6,4 +6,5 @@ export interface InfoQuestion {
   lecture?: InfoLecture;
   text: string;
   answers: string[];
+  correctAnswer: string;
 }

@@ -1,19 +1,15 @@
-import { useStore } from '@/RootStoreProvider';
 import { InfoUser } from '@dto/users/InfoUser.dto';
 import { Box } from '@mui/material';
 import { observer } from 'mobx-react';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BackIcon } from './styles';
 
+interface ComponentProps {
+  profileUser: InfoUser;
+}
 
-const ProfileHeader: React.FC = () => {
-  const { userStore } = useStore();
-  const { profileUser } = userStore;
-
-  useEffect(() => {
-    userStore.getUser();
-  }, []);
-  
+const ProfileHeader = (props: ComponentProps) => {
+  const { profileUser } = props;
   return (
     <Box 
       sx={{

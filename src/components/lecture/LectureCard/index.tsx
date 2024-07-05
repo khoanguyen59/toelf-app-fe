@@ -1,7 +1,7 @@
 import { InfoLecture } from '@dto/lectures/InfoLecture.dto';
 import { Box, FormControl, FormControlLabel, FormLabel, Link, Radio, RadioGroup, Stack, Typography, useMediaQuery } from '@mui/material';
 import { observer } from 'mobx-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import ReactAudioPlayer from 'react-audio-player';
 
@@ -18,6 +18,7 @@ import {
 } from './styles';
 import Button from '@components/common/Button';
 import { theme } from '@/themes/MolunderTheme';
+import { ALPHABET_ANSWERS } from '@/constants/questions.constants';
 
 interface ComponentProps {
   lecture?: InfoLecture;
@@ -29,7 +30,13 @@ const LectureCard = (props: ComponentProps) => {
   const isWeb = useMediaQuery(theme.breakpoints.up('sm'));
   const navigate = useNavigate();
   const [ showFullScript, setShowFullScript ] = useState<boolean>(false);
+  const [ userAnswers, setUserAnswers ] = useState<string[]>([]);
 
+  useEffect(() => {
+    if (lecture && lecture.questions)
+      setUserAnswers(Array(lecture.questions.length).fill(null));
+  }, [lecture]);
+  
   return lecture && (
     <>
       <Box
@@ -39,6 +46,10 @@ const LectureCard = (props: ComponentProps) => {
           flexDirection: 'column',
           borderBottom: '1px solid var(--outline)',
           maxWidth: '100%',
+          maxHeight: '100vh',
+          overflowY: 'auto',
+          scrollbarWidth: 'none',
+          background: 'var(--secondary)',
           '&:hover': !isDetailed ? {
             background: 'var(--twitter-dark-hover)',
             cursor: 'pointer',
@@ -65,11 +76,6 @@ const LectureCard = (props: ComponentProps) => {
               <time>{lecture.createdAt}</time>
             </Header>
             <Box sx={{ maxHeight: isWeb ? 'none' : '400px', overflowY: 'auto' }}>
-              {isDetailed && showFullScript && 
-                <Typography
-                  sx={{ fontSize: '14px', marginTop: '4px', marginRight: '24px', textAlign: 'justify' }}
-                  dangerouslySetInnerHTML={{ __html: lecture.fullScript }} 
-                />} 
               {!isDetailed && <Typography sx={{ fontSize: '14px', marginTop: '4px' }}>
                   {`${lecture.summary}...`}
                 </Typography>}
@@ -116,11 +122,6 @@ const LectureCard = (props: ComponentProps) => {
                 ''
               )}
             </Box>
-            {isDetailed && <Box sx={{ textAlign: 'center', marginTop: '1rem', marginBottom: '2rem', marginRight: '24px' }}>
-              <Button outlined onClick={() => setShowFullScript(!showFullScript)}>
-                {showFullScript ? 'Hide script' : 'Show script'}
-              </Button>
-            </Box>}
             {!isDetailed && <Icons>
               <Status>
                 <CommentIcon />
@@ -135,18 +136,50 @@ const LectureCard = (props: ComponentProps) => {
                 {lecture.numberOfLikes}
               </Status>
             </Icons>}
-            <FormControl>
-              <FormLabel id='demo-controlled-radio-buttons-group'>Gender</FormLabel>
-              <RadioGroup
-                aria-labelledby='demo-controlled-radio-buttons-group'
-                name='controlled-radio-buttons-group'
-                value={'female'}
-                onChange={(event) => {}}
-              >
-                <FormControlLabel value='female' control={<Radio />} label='Female' />
-                <FormControlLabel value='male' control={<Radio />} label='Male' />
-              </RadioGroup>
-            </FormControl>
+            {isDetailed && (lecture.questions || []).map((question, index) => {
+              const { answers } = question;
+              return (
+                <FormControl key={index}>
+                  <FormLabel
+                    id={`question-id-${question.id}`}
+                    sx={{ color: 'var(--twitter)', fontWeight: 'bold', mt: 1 }}
+                  >{`${index + 1}. ${question.text}`}</FormLabel>
+                  <RadioGroup
+                    aria-labelledby='demo-controlled-radio-buttons-group'
+                    name='controlled-radio-buttons-group'
+                    value={userAnswers[index] || ''}
+                    onChange={(event) => {
+                      setUserAnswers(
+                        (prev) => prev.map((answer, answerIndex) => answerIndex !== index ? answer : event.target.value)
+                      )
+                    }}
+                  >
+                    {
+                      answers.map((answer, index) => {
+                        return <FormControlLabel
+                          value={ALPHABET_ANSWERS[index]}
+                          control={<Radio />}
+                          label={answer}
+                          key={index}
+                        />; 
+                      })
+                    }
+                  </RadioGroup>
+                </FormControl>
+              )
+            })}
+            {isDetailed && <Box sx={{ textAlign: 'center', marginTop: '1rem', marginBottom: '2rem', marginRight: '24px' }}>
+              <Button outlined onClick={() => setShowFullScript(!showFullScript)}>
+                {showFullScript ? 'Hide script' : 'Show script'}
+              </Button>
+            </Box>}
+            <Box sx={{ maxHeight: isWeb ? 'none' : '400px', overflowY: 'auto' }}>
+              {isDetailed && showFullScript && 
+                <Typography
+                  sx={{ fontSize: '14px', marginTop: '4px', marginRight: '24px', textAlign: 'justify' }}
+                  dangerouslySetInnerHTML={{ __html: lecture.fullScript }} 
+                />} 
+            </Box>
           </Content>
         </Body>
       </Box>

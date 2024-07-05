@@ -1,0 +1,1 @@
+export const ALPHABET_ANSWERS = ['A', 'B', 'C', 'D', 'E'];

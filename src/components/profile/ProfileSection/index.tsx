@@ -1,3 +1,4 @@
+import { InfoUser } from '@dto/users/InfoUser.dto';
 import React from 'react';
 import {
   Container,
@@ -10,13 +11,18 @@ import {
   Followage,
 } from './styles';
 
-const ProfilePage = () => {
+interface ComponentProps {
+  profileUser: InfoUser;
+}
+
+const ProfileSection = (props: ComponentProps) => {
+  const { profileUser } = props;
   return (
     <Container>
       <Banner>
         <Avatar>
           <img
-            src="https://avatars1.githubusercontent.com/u/53025782?s=400&u=f1ffa8eaccb8545222b7c642532161f11e74a03d&v=4"
+            src='https://avatars.githubusercontent.com/u/44763499?s=400&u=800d425529ae859a491de74413fd6a5f6abff9f6&v=4'
             alt="Elton Lazzarin"
           />
         </Avatar>
@@ -25,40 +31,10 @@ const ProfilePage = () => {
       <ProfileData>
         <EditButton outlined>Set up profile</EditButton>
 
-        <h1>Elton Lazzarin</h1>
-        <h2>@elton_lazzarin</h2>
-
-        <p>
-          Developer at{' '}
-          {/* eslint-disable-next-line react/jsx-no-target-blank */}
-          <a href="https://www.linkedin.com/in/eltonlazzarin/" target="_blank">
-            @WordlLab
-          </a>
-        </p>
-
-        <ul>
-          <li>
-            <LocationIcon />
-            São José do Rio Preto, Brazil
-          </li>
-          <li>
-            <CakeIcon />
-            Born on May 13, 1989
-          </li>
-        </ul>
-
-        <Followage>
-          <span>
-            <strong>98 </strong>
-            Following
-          </span>
-          <span>
-            <strong>322 </strong>Followers
-          </span>
-        </Followage>
+        <h1>{profileUser?.fullName}</h1>
       </ProfileData>
     </Container>
   );
 };
 
-export default ProfilePage;
+export default ProfileSection;

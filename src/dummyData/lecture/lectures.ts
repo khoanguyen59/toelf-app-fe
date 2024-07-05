@@ -21,7 +21,53 @@ export const LECTURES: InfoLecture[] = [
       <p>Despite the fact that by 2000 only 21% of all house holds consisted of a married or cohabiting couple with dependent children, the notion of the nuclear family remains central to family ideology.</p>
       <p>Sociologists and politicians of the New Right frequently suggest that many social problems in Britain stem from the fact that not enough children are being brought up in stable, two-parent families.</p>
     `,
-    audioFileUrl: 'https://www.examenglish.com/TOEFL/audio/toefl_con2.mp3'
+    audioFileUrl: 'https://www.examenglish.com/TOEFL/audio/toefl_con2.mp3',
+    questions: [
+      {
+        id: 1,
+        text: 'What does a nuclear family include?',
+        answers: [
+          'An adult male and an adult female',
+          'Two and a half man',
+          'John Wick and his doggo',
+          'An adult male and female and dependent children'
+        ],
+        correctAnswer: 'An adult male and female and dependent children',
+      },
+      {
+        id: 2,
+        text: 'Some sociologists regard the nuclear family as which form of family:',
+        answers: [
+          'Basic universal',
+          'Advanced galactic',
+          'Traditional',
+          'Modern'
+        ],
+        correctAnswer: 'Basic universal',
+      },
+      {
+        id: 3,
+        text: 'In which era has the concept of nuclear family started to arise?',
+        answers: [
+          'Medieval era',
+          'Renaissance era',
+          'Industrial era',
+          'Atomic era'
+        ],
+        correctAnswer: 'Industrial era',
+      },
+      {
+        id: 4,
+        text: 'The percentage of nuclear family of all households by the start of the millennium is around:',
+        answers: [
+          '1/2',
+          '1/3',
+          '1/4',
+          '1/5'
+        ],
+        correctAnswer: '1/5',
+      }
+    ]
   },
   {
     id: 2,

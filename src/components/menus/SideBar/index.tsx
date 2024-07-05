@@ -21,17 +21,17 @@ const SideBar: React.FC = () => {
 
       {/* <StickyBox> */}
         <Body>
-          <List
+          {/* <List
             title="You might like"
             elements={[
               <FollowSuggestion label="Wuldku Kizon" subLabel="@wkizon" />,
               <FollowSuggestion label="Oriny Figash" subLabel="@OrinyFi22" />,
               <FollowSuggestion label="Maxe Nenial" subLabel="@maxe_nenial" />,
             ]}
-          />
+          /> */}
 
           <List
-            title="What’s happening"
+            title='Suggested lectures'
             elements={[
               <News
                 header="News · Trading"
