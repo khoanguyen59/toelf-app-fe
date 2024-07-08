@@ -135,7 +135,29 @@ export const guardRoutes: CustomRoute[] = [
 
 export const defaultRoutes: CustomRoute[] = [
   {
+    path: '/sign-up',
+    name: MenuNames.REGISTER,
+    title: 'Sign up',
+    exact: false,
+    component: React.lazy(() => import('@/pages/account/RegisterPage')),
+    isLayout: false,
+    isMenu: false,
+    isMobileMenu: false,
+    isGuarded: false,
+  },
+  {
     path: '/sign-in',
+    name: MenuNames.LOGIN,
+    title: 'Sign in',
+    exact: false,
+    component: React.lazy(() => import('@/pages/account/LoginPage')),
+    isLayout: false,
+    isMenu: false,
+    isMobileMenu: false,
+    isGuarded: false,
+  },
+  {
+    path: '/',
     name: MenuNames.LOGIN,
     title: 'Sign in',
     exact: false,

@@ -145,12 +145,6 @@ export const ProfileIcon = styled(Person)(({ theme }) => ({
   color: 'var(--white)',
 }));
 
-export const Botside = styled('div')(({ theme }) => ({
-  marginTop: '20px',
-  display: 'flex',
-  alignItems: 'center',
-}));
-
 export const Avatar = styled('div')(({ theme }) => ({
   'img': {
     flexShrink: 0,

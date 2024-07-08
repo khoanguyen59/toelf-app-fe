@@ -61,7 +61,6 @@ class AuthenticationStore {
       login: action,
       logout: action,
       saveUser: action,
-      setRedirectUrl: action,
     });
   }
 
@@ -150,7 +149,7 @@ class AuthenticationStore {
     }
   }
 
-  async logout(history: any): Promise<any> {
+  async logout(navigate: any): Promise<any> {
     const accessToken =
       retrieveFromStorage('accessToken') || retrieveFromCookie('accessToken');
     const refreshToken =
@@ -170,23 +169,9 @@ class AuthenticationStore {
         removeFromCookie('loggedUser');
         this.loggedUser = null;
         this.redirectUrl = undefined;
-        return history.push('/login');
+        return navigate('/sign-in');
       }
     }
-  }
-
-  async updateUser(model: UpdateUser): Promise<boolean> {
-    return await authenticateService.updateUser(model);
-  }
-
-  async verifyEmail(token: string, redirectTo?: string): Promise<boolean> {
-    const ret = await authenticateService.verifyEmail(token);
-    if (redirectTo) this.setRedirectUrl(redirectTo);
-    return ret;
-  }
-
-  public setRedirectUrl(url: string) {
-    this.redirectUrl = url;
   }
 }
 

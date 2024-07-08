@@ -1,20 +1,20 @@
 import { SideBarMenu, sideBarMenus } from '@/routers/routes';
 import { InfoUser } from '@dto/users/InfoUser.dto';
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import Button from '../../common/Button';
-
 import {
   Container,
   Topside,
   Logo,
   MenuButton,
   Avatar,
-  Botside,
-  ExitIcon,
   ProfileData,
 } from './styles';
+import { Box, IconButton, Popover, Typography, Button as MuiButton } from '@mui/material';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { useStore } from '@/RootStoreProvider';
 
 interface ComponentProps {
   profileUser?: InfoUser;
@@ -23,6 +23,24 @@ interface ComponentProps {
 const MenuBar = (props: ComponentProps) => {
   const { profileUser } = props;
   const navigate = useNavigate();
+  const { authenticationStore } = useStore();
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    authenticationStore.logout(navigate);
+  }
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
   return (
     <Container>
       <Topside>
@@ -37,7 +55,39 @@ const MenuBar = (props: ComponentProps) => {
           <span>Tweet</span>
         </Button>
       </Topside>
-      <Botside>
+      <Box 
+        aria-describedby={id}
+        sx={{ 
+          marginTop: '20px',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+        component={MuiButton}
+        onClick={open ? handleClose : handleClick}
+      >
+        <Popover
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+          transformOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          PaperProps={{
+            style: { width: '220px' },
+          }}
+        >
+          <MuiButton
+            sx={{ background: 'var(--secondary)', width: '100%' }}
+            onClick={handleLogout}
+          >
+            {`Logout`}
+          </MuiButton>
+        </Popover>
         <Avatar>
           <img
             src='https://avatars.githubusercontent.com/u/44763499?s=400&u=800d425529ae859a491de74413fd6a5f6abff9f6&v=4'
@@ -48,8 +98,10 @@ const MenuBar = (props: ComponentProps) => {
           <strong>{profileUser?.fullName}</strong>
           <span>@khoanguyent1qh</span>
         </ProfileData>
-        <ExitIcon />
-      </Botside>
+        <IconButton>
+          {anchorEl ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon /> }
+        </IconButton>
+      </Box>
     </Container>
   );
 };

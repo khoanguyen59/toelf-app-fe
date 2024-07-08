@@ -5,12 +5,15 @@ import { LayoutContainer } from '@components/common/LayoutContainer';
 import { observer } from 'mobx-react';
 import LayoutHeader from '@components/headers/LayoutHeader';
 import TagFacesIcon from '@mui/icons-material/TagFaces';
+import { Box } from '@mui/material';
 
 const TopicLayout = () => {
   return (
     <LayoutContainer>
       <LayoutHeader title={'Discover new topics'} icon={TagFacesIcon}/>
-      <TopicChips />
+      <Box sx={{ height: '100vh' }}>
+        <TopicChips />
+      </Box>
       <BottomNavigationMenu />
     </LayoutContainer>
   );

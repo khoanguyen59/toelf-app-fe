@@ -5,12 +5,16 @@ import React from 'react';
 import { AppContainer } from '@components/common/AppContainer';
 import { AppWrapper } from '@components/common/AppWrapper';
 import LectureDetailLayout from '@components/layouts/LectureDetailLayout';
+import { useStore } from '@/RootStoreProvider';
 
 const LectureDetailPage = () => {
+  const { userStore } = useStore();
+  const { profileUser } = userStore;
+
   return (
     <AppContainer>
       <AppWrapper>
-        <MenuBar />
+        <MenuBar profileUser={profileUser} />
         <LectureDetailLayout />
         <SideBar />
       </AppWrapper>

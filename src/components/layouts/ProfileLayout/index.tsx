@@ -3,6 +3,7 @@ import ProfileHeader from '@components/headers/ProfileHeader';
 import BottomNavigationMenu from '@components/menus/BottomNavigationMenu';
 import ProfilePage from '@components/profile/ProfileSection';
 import { InfoUser } from '@dto/users/InfoUser.dto';
+import { Box } from '@mui/material';
 import { observer } from 'mobx-react';
 import React from 'react';
 
@@ -16,7 +17,9 @@ const ProfileLayout = (props: ComponentProps) => {
   return (
     <LayoutContainer>
       <ProfileHeader profileUser={profileUser} />
-      <ProfilePage profileUser={profileUser} />
+      <Box sx={{ height: '100vh' }}>
+        <ProfilePage profileUser={profileUser} />
+      </Box>
       <BottomNavigationMenu />
     </LayoutContainer>
   );

@@ -8,4 +8,5 @@ export enum MenuNames {
   TOPICS = 'Topics',
   PROFILE = 'Profile',
   LOGIN = 'Login',
+  REGISTER = 'Register',
 }

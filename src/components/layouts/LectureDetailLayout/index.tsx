@@ -23,7 +23,7 @@ const LectureDetailLayout: React.FC = () => {
   return (
     <LayoutContainer>
       <LayoutHeader title={`Lecture #${id}`} />
-        <LectureCard lecture={lecture} isDetailed />
+      <LectureCard lecture={lecture} isDetailed />
       <BottomNavigationMenu />
     </LayoutContainer>
   );

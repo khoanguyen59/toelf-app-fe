@@ -5,12 +5,16 @@ import React from 'react';
 import { AppContainer } from '@components/common/AppContainer';
 import { AppWrapper } from '@components/common/AppWrapper';
 import BookmarkLayout from '@components/layouts/BookmarkLayout';
+import { useStore } from '@/RootStoreProvider';
 
 const BookmarksPage = () => {
+  const { userStore } = useStore();
+  const { profileUser } = userStore;
+
   return (
     <AppContainer>
       <AppWrapper>
-        <MenuBar />
+        <MenuBar profileUser={profileUser} />
         <BookmarkLayout />
         <SideBar />
       </AppWrapper>

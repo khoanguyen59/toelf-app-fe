@@ -1,27 +1,16 @@
-import { I18N } from '@/enums/i18n.enum';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import {
   Box,
   Divider,
-  FormControlLabel,
-  IconButton,
-  InputAdornment,
-  Link,
-  Typography,
   useMediaQuery,
 } from '@mui/material';
-import { borderTop, Theme } from '@mui/system';
 import { observer } from 'mobx-react';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { theme } from '@/themes/MolunderTheme';
 import { useStore } from '@/RootStoreProvider';
-import CustomCheckBox from '@components/common/CustomCheckBox';
 import Button from '@components/common/Button';
 import { SearchInput } from '@components/common/SearchInput';
-import { Body, Item } from './styles';
 import { Title } from '@components/common/Title';
+import { useNavigate } from 'react-router-dom';
 
 interface ComponentProps {
   setEmail: (value: string) => void;
@@ -34,6 +23,7 @@ const LoginForm = (props: ComponentProps) => {
   const { authenticationStore } = useStore();
   const { loginFormValue, errorLoginFormValue } = authenticationStore;
   const isWeb = useMediaQuery(theme.breakpoints.up('sm'));
+  const navigate = useNavigate();
 
   const {
     setEmail,
@@ -65,11 +55,32 @@ const LoginForm = (props: ComponentProps) => {
     }
   };
 
+  const redirectToRegister = () => {
+    navigate('/sign-up');
+  }
+
   return (
-    <Body>
-      <Item>
+    <Box sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '57px 24px 200px',
+      marginTop: '3px',
+      '> div + div': {
+        marginTop: '15px',
+      },
+    }}>
+      <Box sx={{
+        margin: '0 auto',
+        padding: '10px 16px',
+        '&:first-child': {
+          paddingTop: '13px',
+        },
+        '&:last-child': {
+          paddingBottom: '17px',
+        }
+      }}>
         <Title>Already have an account?</Title>
-      </Item>
+      </Box>
       <Box>
         <SearchInput placeholder="Username" type='email' onChange={(e) => setEmail(e.target.value)} />
       </Box>
@@ -82,10 +93,10 @@ const LoginForm = (props: ComponentProps) => {
         </Box>
         <Divider textAlign="center">Or</Divider>
         <Box sx={{ width: '100%', textAlign: 'center', marginTop: '1rem' }}>
-          <Button outlined>Create account</Button>
+          <Button outlined onClick={redirectToRegister}>Create account</Button>
         </Box>
       </Box>
-    </Body>
+    </Box>
   );
 };
 
