@@ -84,7 +84,7 @@ const LectureCard = (props: ComponentProps) => {
               {lecture.stringifiedTopics.map((topic, index) => {
                 return (
                   <Link 
-                    href={`/lectures/?hashtag=${topic}`}
+                    href={`/lectures/?topics=${topic}`}
                     key={index}
                     sx={{
                       mr: 1, 

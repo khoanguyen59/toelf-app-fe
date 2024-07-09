@@ -20,7 +20,6 @@ class UserService {
   }
 
   public async registerUser(model: RegisterUser): Promise<boolean> {
-    console.log(model);
     const result = await http.post(`${this.prefix}`, model);
     return result.data.result;
   }

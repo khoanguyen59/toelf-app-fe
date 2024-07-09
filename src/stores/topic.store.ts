@@ -22,8 +22,12 @@ class TopicStore {
 
   async getTopics(query?: PaginationRequest): Promise<void> {
     const { data, count } = await topicService.getTopics(query);
+    if (query.skip === 0) {
+      this.topics = [];
+      this.topicCount = 0;
+    }
     this.topics = this.topics.concat(data);
-    this.topicCount += count; 
+    this.topicCount += count;
   }
 }
 

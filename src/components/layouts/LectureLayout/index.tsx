@@ -6,6 +6,8 @@ import LectureList from '@components/lecture/LectureList';
 import BottomNavigationMenu from '@components/menus/BottomNavigationMenu';
 import { PaginationRequest } from '@dto/commons/PaginationRequest.dto';
 import { InfoLecture } from '@dto/lectures/InfoLecture.dto';
+import { TopicCategory } from '@enums/topic.enum';
+import { useQuery } from '@utils/api.utils';
 import { observer } from 'mobx-react';
 import React, { useEffect } from 'react';
 
@@ -20,13 +22,19 @@ const DEFAULT_QUERY: PaginationRequest<InfoLecture> = {
 interface ComponentProps {}
 
 const LectureLayout: React.FC = () => {
+  const urlQuery = useQuery();
+  const topicParams = urlQuery.getAll('topics');
+  const categoryParams = urlQuery.getAll('categories');
   const [query, setQuery] = React.useState<PaginationRequest<InfoLecture>>({
     ...DEFAULT_QUERY,
+    filters: {
+      stringifiedTopics: topicParams,
+      stringifiedCategories: categoryParams,
+    }
   });
-
   const { lectureStore } = useStore();
   const { lectures, lectureCount } = lectureStore;
-  console.log(lectures, lectureCount);
+
   useEffect(() => {
     lectureStore.getLectures(query);
   }, [query]);

@@ -34,6 +34,14 @@ class LectureService {
       count: result.length
     };
   }
+
+  public async getSuggestedLectures(query?: PaginationRequest<InfoLectureExtended>): Promise<InfoLectureExtended[]> {
+    // const result = await http.get(`${this.prefix}/suggested/:userId`);
+    // return result.data.result;
+    const result = LECTURES.slice(0, 5);
+    console.log(result);
+    return result;
+  }
 }
 
 export default new LectureService();

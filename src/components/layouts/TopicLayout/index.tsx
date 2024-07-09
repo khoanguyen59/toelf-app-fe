@@ -11,7 +11,17 @@ const TopicLayout = () => {
   return (
     <LayoutContainer>
       <LayoutHeader title={'Discover new topics'} icon={TagFacesIcon}/>
-      <Box sx={{ height: '100vh' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          borderBottom: '1px solid var(--outline)',
+          maxWidth: '100%',
+          height: '100vh',
+          overflowY: 'auto',
+          scrollbarWidth: 'none'
+        }}
+      >
         <TopicChips />
       </Box>
       <BottomNavigationMenu />

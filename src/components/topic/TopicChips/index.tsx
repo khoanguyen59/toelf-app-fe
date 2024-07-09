@@ -7,7 +7,7 @@ import {
   PaperWrapper,
   Item,
 } from './styles';
-import { List, SvgIcon } from '@mui/material';
+import { Link, List, SvgIcon } from '@mui/material';
 import FollowSuggestion from '@components/common/FollowSuggestion';
 import { Title } from '@components/common/Title';
 import { getIconByTopic, InfoTopic } from '@dto/topics/InfoTopic.dto';
@@ -39,7 +39,6 @@ const TopicChips = (props: ComponentProps) => {
   const [selectedTopics, setSelectedTopics] = useState<InfoTopic[]>([]);
 
   useEffect(() => {
-    console.log(query);
     topicStore.getTopics(query);
     userStore.getUser();
   }, [query]);
@@ -103,7 +102,24 @@ const TopicChips = (props: ComponentProps) => {
               <FollowSuggestion
                 icon={icon}
                 label={selectedTopic.name}
-                subLabel={`#${selectedTopic.tag}`}
+                subLabel={selectedTopic.categories.map((category, index) => {
+                  return <Link 
+                    href={`/lectures/?categories=${category}`}
+                    key={index}
+                    sx={{
+                      mr: 1, 
+                      textDecoration: 'none',
+                      fontSize: '14px',
+                      fontWeight: 'bold',
+                      '&:hover': {
+                        textDecoration: 'underline',
+                      }
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {`#${category} `}
+                  </Link>
+                })}
                 endText={'Unfollow'}
                 handleEndButtonClick={() => handleUnselectTopic(selectedTopic)}
               />

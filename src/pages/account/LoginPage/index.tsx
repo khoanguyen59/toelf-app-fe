@@ -16,7 +16,6 @@ const LoginPage = () => {
   const { loginFormValue } = authenticationStore;
   const location = useLocation();
   const navigate = useNavigate();
-  const query = useQuery();
 
   const verified = location && location.state && !!location.state['verified'];
 

@@ -10,12 +10,14 @@ class LectureStore {
   lectureCount: number;
   bookmarks: InfoBookmark[];
   bookmarkCount: number;
+  suggestedLectures: InfoLectureExtended[];
 
   constructor() {
     this.lectures = [];
     this.lectureCount = 0;
     this.bookmarks = [];
     this.bookmarkCount = 0;
+    this.suggestedLectures = [];
 
     makeObservable(this, {
       lecture: observable,
@@ -23,9 +25,11 @@ class LectureStore {
       lectureCount: observable,
       bookmarks: observable,
       bookmarkCount: observable,
+      suggestedLectures: observable,
       getLecture: action,
       getLectures: action,
       getBookmarks: action,
+      getSuggestedLectures: action,
     });
   }
 
@@ -36,14 +40,27 @@ class LectureStore {
 
   async getLectures(query?: PaginationRequest<InfoLectureExtended>): Promise<void> {
     const { data, count } = await lectureService.getLectures(query);
+    if (query.skip === 0) {
+      this.lectures = [];
+      this.lectureCount = 0;
+    }
     this.lectures = this.lectures.concat(data);
     this.lectureCount += count; 
   }
 
   async getBookmarks(query?: PaginationRequest<InfoBookmark>): Promise<void> {
     const { data, count } = await lectureService.getBookmarks(query);
+    if (query.skip === 0) {
+      this.bookmarks = [];
+      this.bookmarkCount = 0;
+    }
     this.bookmarks = this.bookmarks.concat(data);
     this.bookmarkCount += count; 
+  }
+
+  async getSuggestedLectures(query?: PaginationRequest<InfoLectureExtended>): Promise<void> {
+    const data = await lectureService.getSuggestedLectures(query);
+    this.suggestedLectures = data;
   }
 }
 

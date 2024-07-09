@@ -6,8 +6,8 @@ import { Container, Avatar, Info, FollowButton } from './styles';
 interface Props {
   icon?: any;
   imgSrc?: string;
-  label: string;
-  subLabel: string;
+  label: any;
+  subLabel: any;
   endText?: string;
   handleEndButtonClick?: () => void;
 }
