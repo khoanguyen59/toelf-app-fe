@@ -28,6 +28,12 @@ class UserService {
     const result = await http.put(`${this.prefix}/`, userInfo);
     return result.data.result;
   }
+
+  public async updateUserBookmarks(bookmarkIds: number[]): Promise<boolean> {
+    // const result = await http.put(`${this.prefix}/bookmarks`, bookmarkIds);
+    // return result.data.result;
+    return true;
+  }
 }
 
 export default new UserService();

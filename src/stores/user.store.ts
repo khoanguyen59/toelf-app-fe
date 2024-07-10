@@ -37,6 +37,11 @@ class UserStore {
     const result = userService.registerUser(user);
     return result;
   };
+
+  async updateUserBookmarks(lectureIds: number[]): Promise<boolean> {
+    const result = userService.updateUserBookmarks(lectureIds);
+    return result; 
+  }
 }
 
 export default UserStore;

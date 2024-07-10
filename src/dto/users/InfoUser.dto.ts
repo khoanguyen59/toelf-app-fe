@@ -12,7 +12,7 @@ export interface InfoUser {
   isApproved?: boolean;
   topics?: InfoTopic[];
   bookmarks?: InfoBookmark[];
-  bookmardIds?: number[];
+  bookmarkIds?: number[];
 }
 
 export interface InfoUserWidthCredential extends InfoUser {

@@ -1,8 +1,11 @@
 import { InfoUser } from '@dto/users/InfoUser.dto';
-import { Box } from '@mui/material';
+import { Box, IconButton, Stack } from '@mui/material';
 import { observer } from 'mobx-react';
 import React from 'react';
-import { BackIcon } from './styles';
+import { useNavigate } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useStore } from '@/RootStoreProvider';
 
 interface ComponentProps {
   profileUser: InfoUser;
@@ -10,6 +13,13 @@ interface ComponentProps {
 
 const ProfileHeader = (props: ComponentProps) => {
   const { profileUser } = props;
+  const navigate = useNavigate();
+  const { authenticationStore } = useStore();
+  
+  const handleLogout = () => {
+    authenticationStore.logout(navigate);
+  };
+
   return (
     <Box 
       sx={{
@@ -22,6 +32,7 @@ const ProfileHeader = (props: ComponentProps) => {
         textAlign: 'left',
         padding: '8px 0 9px 13px',
         borderBottom: '1px solid var(--outline)',
+        justifyContent: 'space-between',
         '> button': {
           padding: '8px',
           borderRadius: '50%',
@@ -33,24 +44,43 @@ const ProfileHeader = (props: ComponentProps) => {
         }
       }}
     >
-      <button>
-        <BackIcon />
-      </button>
-
-      <Box sx={{
-        marginLeft: '17px',
-        display: 'flex',
-        flexDirection: 'column',
-        '> strong': {
-          fontSize: '19px',
-        },
-        '> span': {
-          fontSize: '15px',
-          color: 'var(--gray)',
-        }
-      }}>
-        <strong>{profileUser?.fullName}</strong>
-      </Box>
+      <Stack flexDirection='row'>
+        <Box>
+          <IconButton
+            onClick={() => navigate(-1)}
+            sx={{ 
+              '.MuiSvgIcon-root': {
+                fill: 'var(--twitter)',
+              }
+            }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+          </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            '> strong': {
+              fontSize: '19px',
+            },
+            marginTop: '5px',
+          }}
+        >
+          <strong>{profileUser?.fullName}</strong>
+        </Box>
+      </Stack>
+      <IconButton
+        sx={{ 
+          '.MuiSvgIcon-root': {
+            height: '28px',
+            width: '28px',
+          }
+        }}
+        onClick={handleLogout}
+      >
+        <LogoutIcon />
+      </IconButton>
     </Box>
   );
 };

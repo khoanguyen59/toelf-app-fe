@@ -1,4 +1,4 @@
-import MenuBar from '@components/menus/MenuBar';
+import MenuBar from '@components/menus/SideBarMenu';
 import SideBar from '@components/menus/SideBar';
 import React, { useEffect } from 'react';
 import { AppContainer } from '@components/common/AppContainer';
@@ -11,7 +11,7 @@ const ProfilePage: React.FC = () => {
   const { profileUser } = userStore;
 
   useEffect(() => {
-    userStore.getUser();
+    if (!profileUser) userStore.getUser();
   }, []);
   
   return (

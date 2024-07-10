@@ -1,4 +1,4 @@
-import { SideBarMenu, sideBarMenus } from '@/routers/routes';
+import { SideBarMenu } from '@/routers/routes';
 import { InfoUser } from '@dto/users/InfoUser.dto';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -15,10 +15,52 @@ import { Box, IconButton, Popover, Typography, Button as MuiButton } from '@mui/
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useStore } from '@/RootStoreProvider';
+import { MenuNames } from '@/routers/RouteCategoryName.enum';
+import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
+import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
+import BookmarkAddedOutlinedIcon from '@mui/icons-material/BookmarkAddedOutlined';
+import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
+
 
 interface ComponentProps {
   profileUser?: InfoUser;
 }
+
+const sideBarMenus: SideBarMenu[] = [
+  // {
+  //   name: MenuNames.HOME,
+  //   icon: <HomeIcon />,
+  //   path: '/home',
+  // },
+  {
+    name: MenuNames.LECTURES,
+    icon: <MenuBookOutlinedIcon />,
+    path: '/lectures',
+  },
+  // {
+  //   name: MenuNames.NOTIFICATIONS,
+  //   icon: <BellIcon />,
+  // },
+  // {
+  //   name: MenuNames.MESSAGES,
+  //   icon: <EmailIcon />,
+  // },
+  {
+    name: MenuNames.BOOKMARKS,
+    icon: <BookmarkAddedOutlinedIcon />,
+    path: '/bookmarks',
+  },
+  {
+    name: MenuNames.TOPICS,
+    icon: <CategoryOutlinedIcon />,
+    path: '/topics',
+  },
+  {
+    name: MenuNames.PROFILE,
+    icon: <ManageSearchOutlinedIcon />,
+    path: '/profile',
+  }
+];
 
 const MenuBar = (props: ComponentProps) => {
   const { profileUser } = props;

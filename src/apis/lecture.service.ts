@@ -27,7 +27,7 @@ class LectureService {
   public async getBookmarks(query?: PaginationRequest<InfoBookmark>): Promise<PaginationResult<InfoBookmark>> {
     // const result = await http.get(`${this.prefix}/bookmark/:userId`);
     // return result.data.result;
-    const bookmarks = LECTURES.filter((lecture) => PROFILE_USER.bookmardIds.includes(lecture.id));
+    const bookmarks = LECTURES.filter((lecture) => PROFILE_USER.bookmarkIds.includes(lecture.id));
     const result = bookmarks.slice(query.skip, query.skip + query.take);
     return {
       data: result,
@@ -39,7 +39,6 @@ class LectureService {
     // const result = await http.get(`${this.prefix}/suggested/:userId`);
     // return result.data.result;
     const result = LECTURES.slice(0, 5);
-    console.log(result);
     return result;
   }
 }

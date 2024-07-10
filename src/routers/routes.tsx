@@ -1,15 +1,7 @@
 import { MenuNames } from '@/routers/RouteCategoryName.enum';
 import React, { ComponentType } from 'react';
 import { matchPath } from 'react-router-dom';
-import {
-  HomeIcon,
-  ExploreIcon,
-  BellIcon,
-  EmailIcon,
-  FavoriteIcon,
-  ListIcon,
-  ProfileIcon,
-} from '@components/menus/MenuBar/styles';
+
 export interface CustomRoute {
   path: string;
   name: MenuNames;
@@ -27,42 +19,6 @@ export interface SideBarMenu {
   icon: React.ReactElement;
   path?: string;
 }
-
-export const sideBarMenus: SideBarMenu[] = [
-  {
-    name: MenuNames.HOME,
-    icon: <HomeIcon />,
-    path: '/home',
-  },
-  {
-    name: MenuNames.LECTURES,
-    icon: <ExploreIcon />,
-    path: '/lectures',
-  },
-  // {
-  //   name: MenuNames.NOTIFICATIONS,
-  //   icon: <BellIcon />,
-  // },
-  // {
-  //   name: MenuNames.MESSAGES,
-  //   icon: <EmailIcon />,
-  // },
-  {
-    name: MenuNames.BOOKMARKS,
-    icon: <FavoriteIcon />,
-    path: '/bookmarks',
-  },
-  {
-    name: MenuNames.TOPICS,
-    icon: <ListIcon />,
-    path: '/topics',
-  },
-  {
-    name: MenuNames.PROFILE,
-    icon: <ProfileIcon />,
-    path: '/profile',
-  }
-];
 
 export const guardRoutes: CustomRoute[] = [
   {

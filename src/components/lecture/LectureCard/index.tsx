@@ -1,5 +1,5 @@
 import { InfoLecture } from '@dto/lectures/InfoLecture.dto';
-import { Box, FormControl, FormControlLabel, FormLabel, Link, Radio, RadioGroup, Stack, Typography, useMediaQuery } from '@mui/material';
+import { Box, FormControl, FormControlLabel, FormLabel, IconButton, Link, Radio, RadioGroup, Stack, Typography, useMediaQuery } from '@mui/material';
 import { observer } from 'mobx-react';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
@@ -10,15 +10,12 @@ import {
   Content,
   Header,
   Dot,
-  Icons,
-  Status,
-  CommentIcon,
-  RetweetIcon,
-  LikeIcon,
 } from './styles';
 import Button from '@components/common/Button';
 import { theme } from '@/themes/MolunderTheme';
 import { ALPHABET_ANSWERS } from '@/constants/questions.constants';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import { useStore } from '@/RootStoreProvider';
 
 interface ComponentProps {
   lecture?: InfoLecture;
@@ -27,16 +24,29 @@ interface ComponentProps {
 
 const LectureCard = (props: ComponentProps) => {
   const { lecture, isDetailed } = props;
+  const { userStore } = useStore();
+  const { profileUser } = userStore;
   const isWeb = useMediaQuery(theme.breakpoints.up('sm'));
   const navigate = useNavigate();
   const [ showFullScript, setShowFullScript ] = useState<boolean>(false);
   const [ userAnswers, setUserAnswers ] = useState<string[]>([]);
+  const [ bookmarked, setBookmarked ] = useState<boolean>((profileUser?.bookmarkIds || []).includes(lecture?.id));
 
   useEffect(() => {
     if (lecture && lecture.questions)
       setUserAnswers(Array(lecture.questions.length).fill(null));
   }, [lecture]);
-  
+
+  const handleBookmark = async (e: any, lectureId: number) => {
+    e.stopPropagation();
+    if (!profileUser) return;
+    // Remove if already bookmarked & Otherwise
+    const bookmarkIds = bookmarked
+      ? profileUser.bookmarkIds.filter((bookmarkId) => bookmarkId !== lectureId)
+      : profileUser.bookmarkIds.concat([lectureId]);
+    await userStore.updateUserBookmarks(bookmarkIds).then(() => setBookmarked(!bookmarked))
+  }
+
   return lecture && (
     <>
       <Box
@@ -69,12 +79,24 @@ const LectureCard = (props: ComponentProps) => {
         )} */}
         <Body>
           <Content>
-            <Header>
-              <strong>{lecture.name}</strong>
-              <span>{(lecture.topics || []).map((topic) => topic.name).join(` ,`)}</span>
-              <Dot />
-              <time>{lecture.createdAt}</time>
-            </Header>
+            <Stack flexDirection='row' justifyContent='space-between'>
+              <Header>
+                <strong>{lecture.name}</strong>
+                <span>{(lecture.topics || []).map((topic) => topic.name).join(` ,`)}</span>
+                <Dot />
+                <time>{lecture.createdAt}</time>
+              </Header>
+              {!isDetailed && <IconButton
+                sx={{ 
+                  '.MuiSvgIcon-root': {
+                    fill: bookmarked ? 'var(--retweet)' : 'default'
+                  }
+                }}
+                onClick={(event) => handleBookmark(event, lecture.id)}
+              >
+                <BookmarkBorderOutlinedIcon />
+              </IconButton>}
+            </Stack>
             <Box sx={{ maxHeight: isWeb ? 'none' : '400px', overflowY: 'auto' }}>
               {!isDetailed && <Typography sx={{ fontSize: '14px', marginTop: '4px' }}>
                   {`${lecture.summary}...`}
@@ -122,7 +144,7 @@ const LectureCard = (props: ComponentProps) => {
                 ''
               )}
             </Box>
-            {!isDetailed && <Icons>
+            {/* {!isDetailed && <Icons>
               <Status>
                 <CommentIcon />
                 {lecture.numberOfTestsTaken}
@@ -135,7 +157,7 @@ const LectureCard = (props: ComponentProps) => {
                 <LikeIcon />
                 {lecture.numberOfLikes}
               </Status>
-            </Icons>}
+            </Icons>} */}
             {isDetailed && (lecture.questions || []).map((question, index) => {
               const { answers } = question;
               return (

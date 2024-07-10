@@ -1,16 +1,5 @@
 import { styled } from '@mui/material/styles';
-
-import {
-  Home,
-  Notifications,
-  Email,
-  BookmarkBorder,
-  Hashtag,
-  ListAlt,
-  Person,
-  KeyboardArrowDown,
-  Twitter,
-} from '../../../styles/Icons';
+import { KeyboardArrowDown } from '../../../styles/Icons';
 
 export const Container = styled('div')(({ theme }) => ({
   display: 'none',
@@ -94,55 +83,6 @@ export const MenuButton = styled('button')(({ theme }) => ({
       fill: 'var(--twitter)',
     }
   }
-}));
-
-export const HomeIcon = styled(Home)(({ theme }) => ({
-  flexShrink: 0,
-  width: '30px',
-  height: '30px',
-  color: 'var(--white)',
-}));
-
-export const ExploreIcon = styled(Hashtag)(({ theme }) => ({
-  flexShrink: 0,
-  width: '30px',
-  height: '30px',
-  color: 'var(--white)',
-}));
-
-export const BellIcon = styled(Notifications)(({ theme }) => ({
-  flexShrink: 0,
-  width: '30px',
-  height: '30px',
-  color: 'var(--white)',
-}));
-
-export const EmailIcon = styled(Email)(({ theme }) => ({
-  flexShrink: 0,
-  width: '30px',
-  height: '30px',
-  color: 'var(--white)',
-}));
-
-export const FavoriteIcon = styled(BookmarkBorder)(({ theme }) => ({
-  flexShrink: 0,
-  width: '30px',
-  height: '30px',
-  color: 'var(--white)',
-}));
-
-export const ListIcon = styled(ListAlt)(({ theme }) => ({
-  flexShrink: 0,
-  width: '30px',
-  height: '30px',
-  color: 'var(--white)',
-}));
-
-export const ProfileIcon = styled(Person)(({ theme }) => ({
-  flexShrink: 0,
-  width: '30px',
-  height: '30px',
-  color: 'var(--white)',
 }));
 
 export const Avatar = styled('div')(({ theme }) => ({
