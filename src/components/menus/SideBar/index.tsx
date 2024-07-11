@@ -1,14 +1,9 @@
 import React, { useEffect } from 'react';
-import { Body } from './styles';
-import { SearchInput } from '@components/common/SearchInput';
 import { useStore } from '@/RootStoreProvider';
 import { observer } from 'mobx-react';
 import SuggestedLectures from '@components/lecture/SuggestedLectures';
 import { Box } from '@mui/system';
-import SearchIcon from '@mui/icons-material/Search';
-import { MenuList, ListItemText, ListItemIcon, Divider, MenuItem } from '@mui/material';
-import Check from '@mui/icons-material/Check';
-import MinifiedLectureCard from '@components/lecture/MinifiedLectureCard';
+import SearchBar from '@components/common/SearchBar';
 
 const SideBar: React.FC = () => {
   const { lectureStore } = useStore();
@@ -39,19 +34,22 @@ const SideBar: React.FC = () => {
           maxHeight: '57px',
         }}
       >
-        <SearchInput placeholder="Search Topics, Lecture,..." />
-        <SearchIcon
-          sx={{
-            width: '27px',
-            height: '27px',
-            fill: 'var(--gray)'
-          }}
-        />
+        <SearchBar />
       </Box>
-      <SuggestedLectures suggestedLectures={suggestedLectures} />
-      <Body>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '57px 24px 200px',
+          marginTop: '3px',
+          '> div + div': {
+            marginTop: '15px',
+          },
+          minWidth: '399px',
+        }}
+      >
         <SuggestedLectures suggestedLectures={suggestedLectures} />
-      </Body>
+      </Box>
     </Box>
   );
 };

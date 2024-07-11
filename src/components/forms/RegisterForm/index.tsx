@@ -8,7 +8,7 @@ import React from 'react';
 import { theme } from '@/themes/MolunderTheme';
 import { useStore } from '@/RootStoreProvider';
 import Button from '@components/common/Button';
-import { SearchInput } from '@components/common/SearchInput';
+import { CustomInput } from '@components/common/CustomInput';
 import { Title } from '@components/common/Title';
 import { useNavigate } from 'react-router-dom';
 
@@ -64,22 +64,22 @@ const RegisterForm = (props: ComponentProps) => {
         <Title>Sign up & start your journey</Title>
       </Box>
       <Box>
-        <SearchInput placeholder='Email' type='email' name='email' onChange={handleChange} />
+        <CustomInput placeholder='Email' type='email' name='email' onChange={handleChange} />
       </Box>
       <Box>
-        <SearchInput placeholder='Password' type='password' name='password' onChange={handleChange} />
+        <CustomInput placeholder='Password' type='password' name='password' onChange={handleChange} />
       </Box>
       <Box>
-        <SearchInput placeholder='Confirm password' type='password' name='confirmPassword' onChange={handleChange} />
+        <CustomInput placeholder='Confirm password' type='password' name='confirmPassword' onChange={handleChange} />
       </Box>
       <Box>
-        <SearchInput placeholder='First name' type='text' name='firstName' onChange={handleChange} />
+        <CustomInput placeholder='First name' type='text' name='firstName' onChange={handleChange} />
       </Box>
       <Box>
-        <SearchInput placeholder='Last name' type='text' name='lastName' onChange={handleChange} />
+        <CustomInput placeholder='Last name' type='text' name='lastName' onChange={handleChange} />
       </Box>
       <Box>
-        <SearchInput placeholder='Phone number' type='text' name='phoneNumber' onChange={handleChange} />
+        <CustomInput placeholder='Phone number' type='text' name='phoneNumber' onChange={handleChange} />
       </Box>
       <Box>
         <Box sx={{ width: '100%', textAlign: 'center', marginTop: '1rem', marginBottom: '1rem' }}>

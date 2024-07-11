@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 
-export const SearchInput = styled('input')(({ theme }) => ({
+export const CustomInput = styled('input')(({ theme }) => ({
   width: '100%',
   height: '39px',
   fontSize: '14px',

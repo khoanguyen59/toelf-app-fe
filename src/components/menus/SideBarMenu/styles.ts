@@ -53,6 +53,7 @@ export const MenuButton = styled('button')(({ theme }) => ({
     paddingRight: '15px',
   },
   padding: '8.25px 0',
+  paddingLeft: '15px',
   outline: 0,
   '& + button': {
     marginTop: '16.5px',

@@ -11,6 +11,7 @@ class LectureStore {
   bookmarks: InfoBookmark[];
   bookmarkCount: number;
   suggestedLectures: InfoLectureExtended[];
+  searchedLectures: InfoLecture[];
 
   constructor() {
     this.lectures = [];
@@ -18,6 +19,7 @@ class LectureStore {
     this.bookmarks = [];
     this.bookmarkCount = 0;
     this.suggestedLectures = [];
+    this.searchedLectures = [];
 
     makeObservable(this, {
       lecture: observable,
@@ -26,6 +28,7 @@ class LectureStore {
       bookmarks: observable,
       bookmarkCount: observable,
       suggestedLectures: observable,
+      searchedLectures: observable,
       getLecture: action,
       getLectures: action,
       getBookmarks: action,

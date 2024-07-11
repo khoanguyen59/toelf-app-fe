@@ -23,6 +23,9 @@ const MinifiedLectureCard = (props: ComponentProps) => {
           paddingBottom: '17px',
         },
         textDecoration: 'none',
+        '&:hover': {
+          background: 'var(--twitter-dark-hover)'
+        }
       }}
       component={RouterLink}
       to={`/lecture/${lecture.id}`}

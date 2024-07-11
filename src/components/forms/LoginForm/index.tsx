@@ -8,7 +8,7 @@ import React from 'react';
 import { theme } from '@/themes/MolunderTheme';
 import { useStore } from '@/RootStoreProvider';
 import Button from '@components/common/Button';
-import { SearchInput } from '@components/common/SearchInput';
+import { CustomInput } from '@components/common/CustomInput';
 import { Title } from '@components/common/Title';
 import { useNavigate } from 'react-router-dom';
 
@@ -82,10 +82,10 @@ const LoginForm = (props: ComponentProps) => {
         <Title>Already have an account?</Title>
       </Box>
       <Box>
-        <SearchInput placeholder="Username" type='email' onChange={(e) => setEmail(e.target.value)} />
+        <CustomInput placeholder="Username" type='email' onChange={(e) => setEmail(e.target.value)} />
       </Box>
       <Box>
-        <SearchInput placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}/>
+        <CustomInput placeholder="Password" type='password' onChange={(e) => setPassword(e.target.value)}/>
       </Box>
       <Box>
         <Box sx={{ width: '100%', textAlign: 'center', marginTop: '1rem', marginBottom: '1rem' }}>
