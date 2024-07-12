@@ -8,7 +8,8 @@ export const Container = styled('div')(({ theme }) => ({
   '> div': {
     display: 'flex',
     alignItems: 'center',
-  }
+  },
+  width: '-webkit-fill-available',
 }));
 
 export const Avatar = styled('div')(({ theme }) => ({

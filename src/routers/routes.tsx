@@ -77,6 +77,17 @@ export const guardRoutes: CustomRoute[] = [
     isGuarded: true,
   },
   {
+    path: '/search',
+    name: MenuNames.SEARCH,
+    title: 'Search',
+    exact: false,
+    component: React.lazy(() => import('@/pages/home/SearchPage')),
+    isLayout: false,
+    isMenu: true,
+    isMobileMenu: false,
+    isGuarded: true,
+  },
+  {
     path: '/home',
     name: MenuNames.HOME,
     title: 'Home',

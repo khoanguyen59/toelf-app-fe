@@ -27,7 +27,7 @@ const bottomMenus: SideBarMenu[] = [
   {
     name: MenuNames.PROFILE,
     icon: <ManageSearchOutlinedIcon />,
-    path: '/profile',
+    path: '/search',
   }
 ];
 

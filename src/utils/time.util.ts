@@ -1,16 +1,16 @@
-// export const handleDebounce = (
-//   reference: NodeJS.Timeout | null,
-//   handle: () => void,
-//   delay: number,
-//   setCustomTimeout: (value: NodeJS.Timeout) => void
-// ) => {
-//   if (reference) {
-//     clearTimeout(reference);
-//     reference = null;
-//   }
+export const handleDebounce = (
+  reference: NodeJS.Timeout | null,
+  handle: () => void,
+  delay: number,
+  setCustomTimeout: (value: NodeJS.Timeout) => void
+) => {
+  if (reference) {
+    clearTimeout(reference);
+    reference = null;
+  }
 
-//   setCustomTimeout(setTimeout(handle, delay));
-// };
+  setCustomTimeout(setTimeout(handle, delay));
+};
 
 export const mapboxDurationConvertToTime = (seconds: number) => {
   const minute = Math.floor(seconds / 60);

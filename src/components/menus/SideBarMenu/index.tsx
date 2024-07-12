@@ -93,9 +93,9 @@ const MenuBar = (props: ComponentProps) => {
             <span>{menu.name}</span>
           </MenuButton>
         ))}
-        <Button>
+        {/* <Button>
           <span>Tweet</span>
-        </Button>
+        </Button> */}
       </Topside>
       <Box 
         aria-describedby={id}

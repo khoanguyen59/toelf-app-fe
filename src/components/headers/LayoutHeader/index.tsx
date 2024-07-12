@@ -74,7 +74,8 @@ const LayoutHeader = (props: ComponentProps) => {
           '.MuiSvgIcon-root': {
             height: '28px',
             width: '28px',
-          }
+          },
+          zIndex: 9999,
         }}
         onClick={openProfile}
       >

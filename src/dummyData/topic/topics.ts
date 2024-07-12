@@ -8,91 +8,91 @@ export const DUMMY_TOPICS = [
     categories: [TopicCategory.Science]
   },
   { 
-    "id": 1,
+    id: 1,
     name: "Culture & Art",
     tag: "culture-art",
     categories: [TopicCategory.Culture]
   },
   {
-    "id": 2,
+    id: 2,
     name: "Politics",
     tag: "politics",
     categories: [TopicCategory.Politics]
   },
   { 
-    "id": 3,
+    id: 3,
     name: "Economics & Finance",
     tag: "economic-finance",
     categories: [TopicCategory.Economy]
   },
   { 
-    "id": 4, 
+    id: 4, 
     name: "Sports", 
     tag: "sports", 
     categories: [TopicCategory.Sports] 
   },
   { 
-    "id": 5, 
+    id: 5, 
     name: "EURO 2024", 
     tag: "euro-2024", 
     categories: [TopicCategory.Sports] 
   },
   { 
-    "id": 6, 
+    id: 6, 
     name: "Education", 
     tag: "education", 
     categories: [TopicCategory.Education] 
   },
   { 
-    "id": 7, 
+    id: 7, 
     name: "Entertainment", 
     tag: "entertainment", 
     categories: [TopicCategory.Entertainment] 
   },
   { 
-    "id": 8, 
+    id: 8, 
     name: "Celebrity", 
     tag: "celebrity", 
     categories: [TopicCategory.Lifestyle] 
   },
   { 
-    "id": 9, 
+    id: 9, 
     name: "AI", 
     tag: "ai", 
     categories: [TopicCategory.Technology] 
   },
   { 
-    "id": 10, 
+    id: 10, 
     name: "Archaeology", 
     tag: "archaeology", 
     categories: [TopicCategory.History]
   },
   { 
-    "id": 11, 
+    id: 11, 
     name: "Russia-Ukraine war", 
     tag: "russia-ukraine-war", 
     categories: [TopicCategory.Politics] 
   },
   { 
-    "id": 12, 
+    id: 12, 
     name: "The Boys TV Show", 
     tag: "the-boys-tv-show", 
     categories: [TopicCategory.Entertainment] 
   },
   { 
-    "id": 13, 
+    id: 13, 
     name: "Travelling", 
     tag: "travelling", 
     categories: [TopicCategory.World, TopicCategory.Lifestyle, TopicCategory.Culture] 
   },
   { 
-    "id": 14, 
+    id: 14, 
     name: "US President Election", 
     tag: "us-president-election", 
     categories: [TopicCategory.Politics] 
   },
   { 
-    "id": 15, 
+    id: 15, 
     name: "Family", 
     tag: "family", 
     categories: [TopicCategory.Society] 

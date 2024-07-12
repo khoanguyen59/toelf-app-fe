@@ -9,8 +9,8 @@ class SearchService {
   public async searchByKeyword(keyword: string): Promise<SearchResult> {
     // const result = await http.get(`${this.prefix}/?keyword=${keyword}`);
     // return result.data.result;
-    const lectures = LECTURES.filter((lecture) => lecture.name.includes(keyword));
-    const topics = DUMMY_TOPICS.filter((topic) => topic.name.includes(keyword) || topic.categories.join(` `).includes(keyword));
+    const topics = DUMMY_TOPICS.filter((topic) => topic.tag.toLowerCase().includes(keyword) || topic.categories.join(` `).toLowerCase().includes(keyword)).slice(0, 3);
+    const lectures = LECTURES.filter((lecture) => lecture.name.toLowerCase().includes(keyword)).slice(0, 5);
     return { lectures: lectures, topics: topics };
   }
 }

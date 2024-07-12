@@ -14,6 +14,7 @@ const MinifiedLectureCard = (props: ComponentProps) => {
   return (
     <Box
       sx={{
+        width: '100%',
         padding: '10px 16px',
         borderTop: '1px solid var(--outline)',
         '&:first-child': {

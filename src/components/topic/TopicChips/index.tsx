@@ -96,10 +96,11 @@ const TopicChips = (props: ComponentProps) => {
       </Item>
       <PaperWrapper>
         <List sx={{ width: '100%', bgcolor: 'transparent' }}>
-          {selectedTopics.map((selectedTopic) => {
+          {selectedTopics.map((selectedTopic, index) => {
             let icon = getIconByTopic(selectedTopic);  
             return (
               <FollowSuggestion
+                key={index}
                 icon={icon}
                 label={selectedTopic.name}
                 subLabel={selectedTopic.categories.map((category, index) => {

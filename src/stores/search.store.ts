@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import searchService from '@/apis/search.service';
 import { SearchResult } from '@dto/search/SearchResult.dto';
 
-class LectureStore {
+class SearchStore {
   searchResults: SearchResult;
 
   constructor() {
@@ -24,4 +24,4 @@ class LectureStore {
   }
 }
 
-export default LectureStore;
+export default SearchStore;

@@ -6,17 +6,27 @@ import SearchResult from "../SearchResult";
 import { useStore } from "@/RootStoreProvider";
 
 const SearchBar = () => {
-  const { topicStore, lectureStore } = useStore();
+  const { searchStore } = useStore();
+  const { searchResults } = searchStore;
+  const { lectures, topics } = searchResults;
+
+  const handleChange = async (keyword: string) => {
+    await searchStore.searchByKeyword(keyword.toLowerCase());
+  };
 
   return (
     <Autocomplete
       freeSolo
       id='search-autocomplete'
       clearOnBlur={false}
-      options={[]}
-      onClose={(event, reason) => {
-        console.log(event, reason);
-      }}
+      options={[
+        ...topics.map((topic) => topic.name),
+        ...lectures.map((lecture) => lecture.name)
+      ]}
+      onChange={() => console.log(1111)}
+      // onClose={(event, reason) => {
+      //   console.log(event, reason);
+      // }}
       onMouseDown={(e) => e.preventDefault()}
       renderInput={(params) => {
         return <TextField
@@ -25,6 +35,9 @@ const SearchBar = () => {
           sx={{
             height: '39px',
             color: 'var(--gray)'
+          }}
+          onChange={(event) => {
+            handleChange(event.target.value);
           }}
           InputProps={{
             ...params.InputProps,
@@ -71,8 +84,8 @@ const SearchBar = () => {
           lineHeight: '0.75em',
         }
       }}
-      PopperComponent={() => {
-        return <SearchResult />
+      PopperComponent={(props) => {
+        return <SearchResult {...props} lectures={lectures} topics={topics} />
       }}
     />
   );
